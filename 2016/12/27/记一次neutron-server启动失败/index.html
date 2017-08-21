@@ -87,15 +87,25 @@
 
 
 
-<meta name="description" content="学习，记录，分享，收获">
-<meta property="og:type" content="website">
+<meta name="description" content="记一次neutron-server启动失败–lbaas驱动加载失败
+问题现象
+
+neutron-server 启动失败，查看日志，发现是加载 lbaas 驱动失败。1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Movie‘s Blog">
-<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/index.html">
+<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2016/12/27/记一次neutron-server启动失败/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
-<meta property="og:description" content="学习，记录，分享，收获">
+<meta property="og:description" content="记一次neutron-server启动失败–lbaas驱动加载失败
+问题现象
+
+neutron-server 启动失败，查看日志，发现是加载 lbaas 驱动失败。1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636">
+<meta property="og:updated_time" content="2016-12-27T06:07:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Movie‘s Blog">
-<meta name="twitter:description" content="学习，记录，分享，收获">
+<meta name="twitter:description" content="记一次neutron-server启动失败–lbaas驱动加载失败
+问题现象
+
+neutron-server 启动失败，查看日志，发现是加载 lbaas 驱动失败。1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636">
 
 
 
@@ -123,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/"/>
+  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/2016/12/27/记一次neutron-server启动失败/"/>
 
 
 
 
 
-  <title> Movie‘s Blog </title>
+  <title>  | Movie‘s Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,9 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,170 +310,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/01/07/ansible-setup-module-problem-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Movie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/logo2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Movie‘s Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/07/ansible-setup-module-problem-md/" itemprop="url">
-                  ansible的setup模块可能导致进程卡死
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-07T22:11:40+08:00">
-                2017-01-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ansible/" itemprop="url" rel="index">
-                    <span itemprop="name">ansible</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ansible/技术总结/" itemprop="url" rel="index">
-                    <span itemprop="name">技术总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><blockquote>
-<p>概述</p>
-</blockquote>
-<p>一次 playbook 的测试过程中，发现一个奇怪的现象：就是执行 playbook 的过程中，总会出现一个 setup 的步骤，并且这个步骤执行的时间非常的长，达到5分钟，甚至有的环境会直接卡死，进程无法中断。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/07/ansible-setup-module-problem-md/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -496,9 +343,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/27/记一次neutron-server启动失败/" itemprop="url">
-                  未命名
-                </a>
               
             
           </h1>
@@ -527,11 +371,26 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2016/12/27/记一次neutron-server启动失败/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">文章阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
           
 
           
@@ -549,9 +408,7 @@
       
 
       
-        
-          
-            <h1 id="记一次neutron-server启动失败–lbaas驱动加载失败"><a href="#记一次neutron-server启动失败–lbaas驱动加载失败" class="headerlink" title="记一次neutron-server启动失败–lbaas驱动加载失败"></a>记一次neutron-server启动失败–lbaas驱动加载失败</h1><blockquote>
+        <h1 id="记一次neutron-server启动失败–lbaas驱动加载失败"><a href="#记一次neutron-server启动失败–lbaas驱动加载失败" class="headerlink" title="记一次neutron-server启动失败–lbaas驱动加载失败"></a>记一次neutron-server启动失败–lbaas驱动加载失败</h1><blockquote>
 <p>问题现象</p>
 </blockquote>
 <p>neutron-server 启动失败，查看日志，发现是加载 lbaas 驱动失败。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">2016-12-27 09:17:17.171 76972 CRITICAL neutron [req-b95ec348-cf8f-4381-83d0-e1447825b2aa ] AttributeError: &apos;NoneType&apos; object has no attribute &apos;provider_name&apos;</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron Traceback (most recent call last):</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/bin/neutron-server&quot;, line 10, in &lt;module&gt;</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     sys.exit(main())</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/cmd/eventlet/server/__init__.py&quot;, line 17, in main</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     server.main()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/server/__init__.py&quot;, line 43, in main</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     neutron_api = service.serve_wsgi(service.NeutronApiService)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/service.py&quot;, line 106, in serve_wsgi</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     LOG.exception(_LE(&apos;Unrecoverable error: please check log &apos;</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/oslo_utils/excutils.py&quot;, line 85, in __exit__</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     six.reraise(self.type_, self.value, self.tb)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/service.py&quot;, line 103, in serve_wsgi</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     service.start()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/service.py&quot;, line 74, in start</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     self.wsgi_app = _run_wsgi(self.app_name)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/service.py&quot;, line 169, in _run_wsgi</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     app = config.load_paste_app(app_name)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/common/config.py&quot;, line 229, in load_paste_app</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     app = deploy.loadapp(&quot;config:%s&quot; % config_path, name=app_name)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py&quot;, line 247, in loadapp</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     return loadobj(APP, uri, name=name, **kw)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py&quot;, line 272, in loadobj</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     return context.create()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py&quot;, line 710, in create</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     return self.object_type.invoke(self)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py&quot;, line 144, in invoke</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     **context.local_conf)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/util.py&quot;, line 56, in fix_call</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     val = callable(*args, **kw)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/urlmap.py&quot;, line 25, in urlmap_factory</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     app = loader.get_app(app_name, global_conf=global_conf)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py&quot;, line 350, in get_app</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     name=name, global_conf=global_conf).create()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py&quot;, line 710, in create</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     return self.object_type.invoke(self)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py&quot;, line 144, in invoke</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     **context.local_conf)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/util.py&quot;, line 56, in fix_call</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     val = callable(*args, **kw)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/auth.py&quot;, line 74, in pipeline_factory</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     app = loader.get_app(pipeline[-1])</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py&quot;, line 350, in get_app</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     name=name, global_conf=global_conf).create()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py&quot;, line 710, in create</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     return self.object_type.invoke(self)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/loadwsgi.py&quot;, line 146, in invoke</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     return fix_call(context.object, context.global_conf, **context.local_conf)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/paste/deploy/util.py&quot;, line 56, in fix_call</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     val = callable(*args, **kw)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/api/v2/router.py&quot;, line 71, in factory</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     return cls(**local_config)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/api/v2/router.py&quot;, line 75, in __init__</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     plugin = manager.NeutronManager.get_plugin()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/manager.py&quot;, line 245, in get_plugin</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     return weakref.proxy(cls.get_instance().plugin)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/manager.py&quot;, line 239, in get_instance</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     cls._create_instance()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/oslo_concurrency/lockutils.py&quot;, line 445, in inner</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     return f(*args, **kwargs)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/manager.py&quot;, line 225, in _create_instance</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     cls._instance = cls()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/manager.py&quot;, line 129, in __init__</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     self._load_service_plugins()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/manager.py&quot;, line 198, in _load_service_plugins</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     provider)</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron/manager.py&quot;, line 166, in _get_plugin_instance</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     return plugin_class()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron_lbaas/services/loadbalancer/plugin.py&quot;, line 389, in __init__</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     self._load_drivers()</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron_lbaas/services/loadbalancer/plugin.py&quot;, line 405, in _load_drivers</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     self._check_orphan_loadbalancer_associations(ctx, self.drivers.keys())</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron   File &quot;/usr/lib/python2.7/site-packages/neutron_lbaas/services/loadbalancer/plugin.py&quot;, line 418, in _check_orphan_loadbalancer_associations</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron     if lb.provider.provider_name not in provider_names])</div><div class="line">2016-12-27 09:17:17.171 76972 TRACE neutron AttributeError: &apos;NoneType&apos; object has no attribute &apos;provider_name&apos;</div></pre></td></tr></table></figure></p>
@@ -599,20 +456,48 @@
 <li><a href="http://docs.openstack.org/mitaka/networking-guide/config-lbaas.html" target="_blank" rel="external">官网Load Balancer as a Service (LBaaS)</a></li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>多谢捧场，支撑原创！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ohpl45gie.bkt.clouddn.com/weixinplay.png" alt="Movie WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ohpl45gie.bkt.clouddn.com/aliplay.png" alt="Movie Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
     </div>
+  </div>
 
-    <div>
+
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -620,416 +505,42 @@
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2016/12/23/2016年终讲/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Movie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/logo2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Movie‘s Blog">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/23/2016年终讲/" itemprop="url">
-                  2016年终讲
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-23T09:26:33+08:00">
-                2016-12-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="2016年终讲"><a href="#2016年终讲" class="headerlink" title="2016年终讲"></a>2016年终讲</h1><pre><code>时间过的很快，不经意间又过了一年。雁过留痕，总要留下点什么。
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/23/2016年终讲/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/23/2016年终讲/" rel="next" title="2016年终讲">
+                <i class="fa fa-chevron-left"></i> 2016年终讲
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2016/12/21/atom.windows/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Movie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/logo2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Movie‘s Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/01/07/ansible-setup-module-problem-md/" rel="prev" title="ansible的setup模块可能导致进程卡死">
+                ansible的setup模块可能导致进程卡死 <i class="fa fa-chevron-right"></i>
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/12/21/atom.windows/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-21T19:54:35+08:00">
-                2016-12-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://github.com/atom/atom/blob/master/docs/build-instructions/windows.md" target="_blank" rel="external">https://github.com/atom/atom/blob/master/docs/build-instructions/windows.md</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2016/12/07/helloblog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Movie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/logo2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Movie‘s Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/07/helloblog/" itemprop="url">
-                  helloblog
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-07T15:29:55+08:00">
-                2016-12-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="博客终于开张了！"><a href="#博客终于开张了！" class="headerlink" title="博客终于开张了！"></a>博客终于开张了！</h1><p>一直想整一个自己的技术博客，最近终于抽出时间整起来了，感谢gitbub,hexo等相关技术贡献者，给大家带来的免费福利，搭建博客的过程很简单。</p>
-<h2 id="为什么要搭建自己的博客？"><a href="#为什么要搭建自己的博客？" class="headerlink" title="为什么要搭建自己的博客？"></a>为什么要搭建自己的博客？</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/07/helloblog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1037,6 +548,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
 
         </div>
         
@@ -1056,8 +573,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo2.png"
@@ -1137,6 +663,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#记一次neutron-server启动失败–lbaas驱动加载失败"><span class="nav-number">1.</span> <span class="nav-text">记一次neutron-server启动失败–lbaas驱动加载失败</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1245,6 +787,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
