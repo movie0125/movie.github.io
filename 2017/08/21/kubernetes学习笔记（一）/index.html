@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/08/21/kubernetes学习笔记（一）/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
 <meta property="og:description" content="基本概念">
-<meta property="og:updated_time" content="2017-08-23T06:11:32.381Z">
+<meta property="og:updated_time" content="2017-08-23T10:33:37.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubernetes学习笔记（一）">
 <meta name="twitter:description" content="基本概念">
@@ -385,14 +385,15 @@
           
             
               <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a class="cloud-tie-join-count" href="/2017/08/21/kubernetes学习笔记（一）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                </a>
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
               </span>
+              
+                <a href="/2017/08/21/kubernetes学习笔记（一）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/08/21/kubernetes学习笔记（一）/" itemprop="commentsCount"></span>
+                </a>
+              
             
           
 
@@ -421,7 +422,9 @@
       
 
       
-        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1> <a id="more"></a>
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=32785674&auto=0&height=66"></iframe>
+
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1> <a id="more"></a>
 <h2 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h2><p>  Pod是一组紧密关联的容器集合，它们共享IPC、Network和UTC namespace，是Kubernetes调度的基本单位。Pod的设计理念是支持多个容器在一个Pod中共享网络和文件系统，可以通过进程间通信和文件共享这种简单高效的方式组合完成服务。</p>
 <ul>
 <li>包含多个共享IPC、Network和UTC namespace的容器，可直接通过localhost通信</li>
@@ -678,7 +681,7 @@
           
   <div class="comments" id="comments">
     
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+      <div id="SOHUCS"></div>
     
   </div>
 
@@ -959,24 +962,36 @@
 
 
   
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "6923e9c216c54cf3b08f3b42d522684a",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+
+
+
+
+
   
 
 
 
 
 
+  
 
 
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytb7byxu';
+      var conf = '52bfdb617050b735aa4c6ebc507489a6';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
 
 
 
