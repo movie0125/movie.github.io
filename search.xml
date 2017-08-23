@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[rabbitmq故障修复]]></title>
       <url>%2F2017%2F08%2F23%2Frabbitmq%E6%95%85%E9%9A%9C%E4%BF%AE%E5%A4%8D%2F</url>
-      <content type="text"><![CDATA[故障类型 集群不可用 集群网络分区 消息队列卡死 其他 修复操作集群不可用 问题现象： 三个消息队列服务，其中一个或多个无法启动，service rabbitmq-server start 命令无法拉起服务。 处理方法：重建集群 删除集群缓存文件 12rm -f /var/lib/rabbitmq/erl_crash.dump rm -rf /var/lib/rabbitmq/mnesia/* 重启三个消息队列服务 1service rabbitmq-server restart 选一个主节点，创建集群 1rabbitmqctl start_app 其他节点，加入集群 123rabbitmqctl stop_apprabbitmqctl join_cluster rabbit@node2rabbitmqctl start_app 集群网络分区 问题现象： 在三个节点执行 rabbitmqctl cluster_status 命令，看到节点列表不同 处理方法： 重建集群，方法同上 消息队列消息积压 问题现象： 消息队列执行命令非常卡， rabbitmqctl list_queues 等命令都无法正常输出。 某些队列消息非常多，导致消息积压。 处理方法： 清除消息。 1rabbitmqadmin purge queue name=ceilometer.collector.metering 其他暂时还没有碰到过其他场景，后面碰到再来补充]]></content>
+      <content type="text"><![CDATA[故障类型 集群不可用 集群网络分区 消息队列卡死 其他 修复操作集群不可用 问题现象： 三个消息队列服务，其中一个或多个无法启动，service rabbitmq-server start 命令无法拉起服务。 处理方法：重建集群 删除集群缓存文件 12rm -f /var/lib/rabbitmq/erl_crash.dump rm -rf /var/lib/rabbitmq/mnesia/* 重启三个消息队列服务 1service rabbitmq-server restart 选一个主节点，创建集群 1rabbitmqctl start_app 其他节点，加入集群 123rabbitmqctl stop_apprabbitmqctl join_cluster rabbit@node2rabbitmqctl start_app 集群网络分区 问题现象： 在三个节点执行 rabbitmqctl cluster_status 命令，看到节点列表不同 处理方法： 重建集群，方法同上 消息队列消息积压 问题现象： 消息队列执行命令非常卡， rabbitmqctl list_queues 等命令都无法正常输出。 某些队列消息非常多，导致消息积压。 处理方法： 清除消息。 1rabbitmqadmin purge queue name=ceilometer.collector.metering 其他 暂时还没有碰到过其他场景，后面碰到再来补充]]></content>
     </entry>
 
     
