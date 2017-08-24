@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/08/21/kubernetes学习笔记（一）/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
 <meta property="og:description" content="基本概念">
-<meta property="og:updated_time" content="2017-08-23T10:33:37.245Z">
+<meta property="og:updated_time" content="2017-08-24T07:00:30.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubernetes学习笔记（一）">
 <meta name="twitter:description" content="基本概念">
@@ -439,11 +439,13 @@
 <p>  不像其他的资源（如Pod和Namespace），Node本质上不是Kubernetes来创建的，Kubernetes只是管理Node上的资源。虽然可以通过Manifest创建一个Node对象（如下json所示），但Kubernetes也只是去检查是否真的是有这么一个Node，如果检查失败，也不会往上调度Pod。</p>
 <p>  默认情况下，kubelet在启动时会向master注册自己，并创建Node资源。</p>
 <p>  每个Node都包括以下状态信息</p>
-<pre><code>- 地址：包括hostname、外网IP和内网IP
--    条件（Condition）：包括OutOfDisk、Ready、MemoryPressure和DiskPressure
-- 容量（Capacity）：Node上的可用资源，包括CPU、内存和Pod总数
-- 基本信息（Info）：包括内核版本、容器引擎版本、OS类型等
-</code></pre><h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><p>  Service是对一组提供相同功能的Pods的抽象，并为它们提供一个统一的入口。借助Service，应用可以方便的实现服务发现与负载均衡，并实现应用的零宕机升级。Service通过标签来选取服务后端，一般配合Replication Controller或者Deployment来保证后端容器的正常运行。这些匹配标签的Pod IP和端口列表组成endpoints，由kube-proxy负责将服务IP负载均衡到这些endpoints上。</p>
+<ul>
+<li>地址：包括hostname、外网IP和内网IP</li>
+<li>条件（Condition）：包括OutOfDisk、Ready、MemoryPressure和DiskPressure</li>
+<li>容量（Capacity）：Node上的可用资源，包括CPU、内存和Pod总数</li>
+<li>基本信息（Info）：包括内核版本、容器引擎版本、OS类型等</li>
+</ul>
+<h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><p>  Service是对一组提供相同功能的Pods的抽象，并为它们提供一个统一的入口。借助Service，应用可以方便的实现服务发现与负载均衡，并实现应用的零宕机升级。Service通过标签来选取服务后端，一般配合Replication Controller或者Deployment来保证后端容器的正常运行。这些匹配标签的Pod IP和端口列表组成endpoints，由kube-proxy负责将服务IP负载均衡到这些endpoints上。</p>
 <h3 id="Service有四种类型："><a href="#Service有四种类型：" class="headerlink" title="Service有四种类型："></a>Service有四种类型：</h3><ul>
 <li>ClusterIP：默认类型，自动分配一个仅cluster内部可以访问的虚拟IP</li>
 <li>NodePort：在ClusterIP基础上为Service在每台机器上绑定一个端口，这样就可以通过<nodeip>:NodePort来访问该服务</nodeip></li>
