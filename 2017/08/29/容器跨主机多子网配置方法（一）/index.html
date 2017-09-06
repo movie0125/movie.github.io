@@ -87,27 +87,21 @@
 
 
 
-<meta name="description" content="容器跨主机多子网配置方法（ openvswitch + docker + namespace ）实验环境
-centos7 1611
-Docker version 1.12.6
-VMware 12">
+<meta name="description" content="容器跨主机多子网配置方法（ openvswitch + docker + namespace ）  本实验中使用 Openvswitch 网桥替换了 docker 默认的 linux 网桥。Openswitch 是一个开源的虚拟交换机的实现，在云计算领域有广泛的应用，利用 Openvswitch 可以实现更加丰富和强大的网络功能。
+  本实验按照下面的网络拓扑结构，搭建两个跨主机的 vlan,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="容器跨主机多子网配置方法（一）">
 <meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/08/29/容器跨主机多子网配置方法（一）/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
-<meta property="og:description" content="容器跨主机多子网配置方法（ openvswitch + docker + namespace ）实验环境
-centos7 1611
-Docker version 1.12.6
-VMware 12">
+<meta property="og:description" content="容器跨主机多子网配置方法（ openvswitch + docker + namespace ）  本实验中使用 Openvswitch 网桥替换了 docker 默认的 linux 网桥。Openswitch 是一个开源的虚拟交换机的实现，在云计算领域有广泛的应用，利用 Openvswitch 可以实现更加丰富和强大的网络功能。
+  本实验按照下面的网络拓扑结构，搭建两个跨主机的 vlan,">
 <meta property="og:image" content="http://ohpl45gie.bkt.clouddn.com/%E5%AE%9E%E9%AA%8C%E5%89%8D%E7%BD%91%E7%BB%9C%E5%9B%BE.png">
 <meta property="og:image" content="http://ohpl45gie.bkt.clouddn.com/%E5%AE%9E%E9%AA%8C%E5%90%8E%E7%BD%91%E7%BB%9C%E5%9B%BE.png">
-<meta property="og:updated_time" content="2017-09-01T10:01:20.954Z">
+<meta property="og:updated_time" content="2017-09-04T02:31:06.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="容器跨主机多子网配置方法（一）">
-<meta name="twitter:description" content="容器跨主机多子网配置方法（ openvswitch + docker + namespace ）实验环境
-centos7 1611
-Docker version 1.12.6
-VMware 12">
+<meta name="twitter:description" content="容器跨主机多子网配置方法（ openvswitch + docker + namespace ）  本实验中使用 Openvswitch 网桥替换了 docker 默认的 linux 网桥。Openswitch 是一个开源的虚拟交换机的实现，在云计算领域有广泛的应用，利用 Openvswitch 可以实现更加丰富和强大的网络功能。
+  本实验按照下面的网络拓扑结构，搭建两个跨主机的 vlan,">
 <meta name="twitter:image" content="http://ohpl45gie.bkt.clouddn.com/%E5%AE%9E%E9%AA%8C%E5%89%8D%E7%BD%91%E7%BB%9C%E5%9B%BE.png">
 
 
@@ -436,7 +430,9 @@ VMware 12">
       
         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=480579211&auto=0&height=66"></iframe>
 
-<h1 id="容器跨主机多子网配置方法（-openvswitch-docker-namespace-）"><a href="#容器跨主机多子网配置方法（-openvswitch-docker-namespace-）" class="headerlink" title="容器跨主机多子网配置方法（ openvswitch + docker + namespace ）"></a>容器跨主机多子网配置方法（ openvswitch + docker + namespace ）</h1><h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
+<h1 id="容器跨主机多子网配置方法（-openvswitch-docker-namespace-）"><a href="#容器跨主机多子网配置方法（-openvswitch-docker-namespace-）" class="headerlink" title="容器跨主机多子网配置方法（ openvswitch + docker + namespace ）"></a>容器跨主机多子网配置方法（ openvswitch + docker + namespace ）</h1><p>  本实验中使用 Openvswitch 网桥替换了 docker 默认的 linux 网桥。Openswitch 是一个开源的虚拟交换机的实现，在云计算领域有广泛的应用，利用 Openvswitch 可以实现更加丰富和强大的网络功能。</p>
+<p>  本实验按照下面的网络拓扑结构，搭建两个跨主机的 vlan, 主机 centos1 运行两个容器 container1 和 container2, 分别属于 vlan1 和 vlan2， 主机 centos2 同样运行两个容器 container3 和 container4，分别属于 vlan1 和 vlan2。 最终，vlan1 内部的两个容器可以互相通信，vlan2 内部的两个容器也可以通信，但是 vlan1 和 vlan2 互相隔离，互相不可访问。</p>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
 <li>centos7 1611</li>
 <li>Docker version 1.12.6</li>
 <li>VMware 12</li>
@@ -564,8 +560,8 @@ VMware 12">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/01/容器Link原理解析/" rel="prev" title="容器Link原理解析">
-                容器Link原理解析 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/30/容器跨主机多子网配置方法（二）/" rel="prev" title="容器跨主机多子网配置方法（二）">
+                容器跨主机多子网配置方法（二） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -640,7 +636,7 @@ VMware 12">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -651,7 +647,7 @@ VMware 12">
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -662,7 +658,7 @@ VMware 12">
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Movie,Blog,devops,openstack,ceph,ansible,puppet" />
+  <meta name="keywords" content="docker,容器," />
 
 
 
@@ -87,16 +87,43 @@
 
 
 
-<meta name="description" content="学习，记录，分享，收获">
-<meta property="og:type" content="website">
-<meta property="og:title" content="所有标签">
-<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/tags/index.html">
+<meta name="description" content="使用docker需要考虑的问题学会 docker 基本命令，和一些基本用法之后，进一步需要做什么呢？
+先把这些问题记录下来，有机会再记录我是怎么处理的。
+
+应用负责均衡，容器IP变化后，负责均衡该怎么处理
+
+应用健康检查怎么处理，比如 web 服务，返回 4XX，5XX,改怎么被感知和处理
+
+如何保证通一个应用的不同容器实例分布在不同的宿主机，或者分布到指定的宿主机
+
+当一个宿主机故障时，节点上面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用docker需要考虑的问题">
+<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/09/06/使用docker需要考虑的问题/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
-<meta property="og:description" content="学习，记录，分享，收获">
-<meta property="og:updated_time" content="2016-12-07T06:03:12.000Z">
+<meta property="og:description" content="使用docker需要考虑的问题学会 docker 基本命令，和一些基本用法之后，进一步需要做什么呢？
+先把这些问题记录下来，有机会再记录我是怎么处理的。
+
+应用负责均衡，容器IP变化后，负责均衡该怎么处理
+
+应用健康检查怎么处理，比如 web 服务，返回 4XX，5XX,改怎么被感知和处理
+
+如何保证通一个应用的不同容器实例分布在不同的宿主机，或者分布到指定的宿主机
+
+当一个宿主机故障时，节点上面">
+<meta property="og:updated_time" content="2017-09-06T09:12:15.898Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="所有标签">
-<meta name="twitter:description" content="学习，记录，分享，收获">
+<meta name="twitter:title" content="使用docker需要考虑的问题">
+<meta name="twitter:description" content="使用docker需要考虑的问题学会 docker 基本命令，和一些基本用法之后，进一步需要做什么呢？
+先把这些问题记录下来，有机会再记录我是怎么处理的。
+
+应用负责均衡，容器IP变化后，负责均衡该怎么处理
+
+应用健康检查怎么处理，比如 web 服务，返回 4XX，5XX,改怎么被感知和处理
+
+如何保证通一个应用的不同容器实例分布在不同的宿主机，或者分布到指定的宿主机
+
+当一个宿主机故障时，节点上面">
 
 
 
@@ -124,19 +151,13 @@
 
 
 
-  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/tags/"/>
+  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/2017/09/06/使用docker需要考虑的问题/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    所有标签 | Movie‘s Blog
-  
-</title>
+  <title> 使用docker需要考虑的问题 | Movie‘s Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -170,7 +191,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -309,25 +330,238 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">所有标签</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/09/06/使用docker需要考虑的问题/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Movie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Movie‘s Blog">
+    </span>
 
     
-    
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            目前共计 11 个标签
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                使用docker需要考虑的问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T17:11:33+08:00">
+                2017-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术思考/" itemprop="url" rel="index">
+                    <span itemprop="name">技术思考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/09/06/使用docker需要考虑的问题/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/06/使用docker需要考虑的问题/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">文章阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
         </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/ansible/" style="font-size: 12px; color: #ccc">ansible</a> <a href="/tags/ansible-playbook/" style="font-size: 12px; color: #ccc">ansible-playbook</a> <a href="/tags/docker/" style="font-size: 30px; color: #111">docker</a> <a href="/tags/github/" style="font-size: 12px; color: #ccc">github</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/kubernetes概念/" style="font-size: 12px; color: #ccc">kubernetes概念</a> <a href="/tags/openstack/" style="font-size: 12px; color: #ccc">openstack</a> <a href="/tags/rabbitmq/" style="font-size: 12px; color: #ccc">rabbitmq</a> <a href="/tags/setup模块/" style="font-size: 12px; color: #ccc">setup模块</a> <a href="/tags/容器/" style="font-size: 12px; color: #ccc">容器</a> <a href="/tags/故障修复/" style="font-size: 12px; color: #ccc">故障修复</a>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="使用docker需要考虑的问题"><a href="#使用docker需要考虑的问题" class="headerlink" title="使用docker需要考虑的问题"></a>使用docker需要考虑的问题</h1><pre><code>学会 docker 基本命令，和一些基本用法之后，进一步需要做什么呢？
+先把这些问题记录下来，有机会再记录我是怎么处理的。
+</code></pre><ul>
+<li><p>应用负责均衡，容器IP变化后，负责均衡该怎么处理</p>
+</li>
+<li><p>应用健康检查怎么处理，比如 web 服务，返回 4XX，5XX,改怎么被感知和处理</p>
+</li>
+<li><p>如何保证通一个应用的不同容器实例分布在不同的宿主机，或者分布到指定的宿主机</p>
+</li>
+<li><p>当一个宿主机故障时，节点上面的容器该怎么处理</p>
+</li>
+<li><p>怎么监控容器内应用的资源使用情况，用来决定是否增加容器集群</p>
+</li>
+<li><p>如何构建一个 测试-开发-上线 的完整流程</p>
+</li>
+<li><p>当构建的镜像非常多时，复杂的镜像关系会大大拖延容器创建和启动速度，如何处理这种关系。</p>
+</li>
+<li><p>大量删除容器，可能导致一些游离的容器，占用大量资源，怎么处理</p>
+</li>
+<li><p>挂载的 volume 数据该如何进行备份，磁盘写满该怎么处理</p>
+</li>
+<li><p>宿主机 cpu、内存、磁盘该怎么合理使用</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>多谢捧场，支持原创！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ohpl45gie.bkt.clouddn.com/weixinplay.png" alt="Movie WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ohpl45gie.bkt.clouddn.com/aliplay.png" alt="Movie Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/docker/" rel="tag"># docker</a>
+          
+            <a href="/tags/容器/" rel="tag"># 容器</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/01/容器Link原理解析/" rel="next" title="容器Link原理解析">
+                <i class="fa fa-chevron-left"></i> 容器Link原理解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -336,6 +570,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
 
         </div>
         
@@ -355,8 +595,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo2.png"
@@ -436,6 +685,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用docker需要考虑的问题"><span class="nav-number">1.</span> <span class="nav-text">使用docker需要考虑的问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -563,6 +828,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 

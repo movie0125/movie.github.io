@@ -313,6 +313,183 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/09/06/使用docker需要考虑的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Movie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Movie‘s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/06/使用docker需要考虑的问题/" itemprop="url">
+                  使用docker需要考虑的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T17:11:33+08:00">
+                2017-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术思考/" itemprop="url" rel="index">
+                    <span itemprop="name">技术思考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/09/06/使用docker需要考虑的问题/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://movie0125.github.io/movie0125.github.io/2017/09/06/使用docker需要考虑的问题/" class="cy_cmt_count" data-xid="2017/09/06/使用docker需要考虑的问题/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="使用docker需要考虑的问题"><a href="#使用docker需要考虑的问题" class="headerlink" title="使用docker需要考虑的问题"></a>使用docker需要考虑的问题</h1><pre><code>学会 docker 基本命令，和一些基本用法之后，进一步需要做什么呢？
+先把这些问题记录下来，有机会再记录我是怎么处理的。
+</code></pre><ul>
+<li><p>应用负责均衡，容器IP变化后，负责均衡该怎么处理</p>
+</li>
+<li><p>应用健康检查怎么处理，比如 web 服务，返回 4XX，5XX,改怎么被感知和处理</p>
+</li>
+<li><p>如何保证通一个应用的不同容器实例分布在不同的宿主机，或者分布到指定的宿主机</p>
+</li>
+<li><p>当一个宿主机故障时，节点上面的容器该怎么处理</p>
+</li>
+<li><p>怎么监控容器内应用的资源使用情况，用来决定是否增加容器集群</p>
+</li>
+<li><p>如何构建一个 测试-开发-上线 的完整流程</p>
+</li>
+<li><p>当构建的镜像非常多时，复杂的镜像关系会大大拖延容器创建和启动速度，如何处理这种关系。</p>
+</li>
+<li><p>大量删除容器，可能导致一些游离的容器，占用大量资源，怎么处理</p>
+</li>
+<li><p>挂载的 volume 数据该如何进行备份，磁盘写满该怎么处理</p>
+</li>
+<li><p>宿主机 cpu、内存、磁盘该怎么合理使用</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/09/01/容器Link原理解析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -473,6 +650,171 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/08/30/容器跨主机多子网配置方法（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Movie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Movie‘s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/30/容器跨主机多子网配置方法（二）/" itemprop="url">
+                  容器跨主机多子网配置方法（二）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-30T09:35:31+08:00">
+                2017-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术总结/" itemprop="url" rel="index">
+                    <span itemprop="name">技术总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/08/30/容器跨主机多子网配置方法（二）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="url::http://movie0125.github.io/movie0125.github.io/2017/08/30/容器跨主机多子网配置方法（二）/" class="cy_cmt_count" data-xid="2017/08/30/容器跨主机多子网配置方法（二）/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="容器跨主机多子网配置方法（-overlay-swarm）"><a href="#容器跨主机多子网配置方法（-overlay-swarm）" class="headerlink" title="容器跨主机多子网配置方法（ overlay + swarm）"></a>容器跨主机多子网配置方法（ overlay + swarm）</h1><p>  overlay 是 docker 原生的跨主机多子网方案，其核心是通过 Linux 网桥与 vxlan 隧道实现跨主机划分子网。swarm 是 docker 原生的集群管理方案。</p>
+<p>  利用 overlay 创建一个网络， docker 会在主机上面创建一个沙盒，实质上就是一个 network namespace（下面简称 netns），在 netns 中创建一个名为 br0 的网桥，并在网桥上面增加一个 vxlan 接口，每个网咯占用一个 vxlan ID。当前使用 Docker 创建的 vxlan ID范围是 256 ~ 1000，因此最多创建 745 个网络。</p>
+<p>  当容器加入某个网络时，docker 会创建一对网卡设备，一端连接到此网络 netns 中的 br0 网桥上，另一端加入容器的 netns 中，并设置 br0 的IP地址作为容器内路由默认网关地址，从而实现容器加入网络的目的。</p>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
+<li>centos7 1611</li>
+<li>Docker version 1.17</li>
+<li>VMware 12</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/30/容器跨主机多子网配置方法（二）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/08/29/容器跨主机多子网配置方法（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -584,7 +926,9 @@
         
           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=480579211&auto=0&height=66"></iframe>
 
-<h1 id="容器跨主机多子网配置方法（-openvswitch-docker-namespace-）"><a href="#容器跨主机多子网配置方法（-openvswitch-docker-namespace-）" class="headerlink" title="容器跨主机多子网配置方法（ openvswitch + docker + namespace ）"></a>容器跨主机多子网配置方法（ openvswitch + docker + namespace ）</h1><h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
+<h1 id="容器跨主机多子网配置方法（-openvswitch-docker-namespace-）"><a href="#容器跨主机多子网配置方法（-openvswitch-docker-namespace-）" class="headerlink" title="容器跨主机多子网配置方法（ openvswitch + docker + namespace ）"></a>容器跨主机多子网配置方法（ openvswitch + docker + namespace ）</h1><p>  本实验中使用 Openvswitch 网桥替换了 docker 默认的 linux 网桥。Openswitch 是一个开源的虚拟交换机的实现，在云计算领域有广泛的应用，利用 Openvswitch 可以实现更加丰富和强大的网络功能。</p>
+<p>  本实验按照下面的网络拓扑结构，搭建两个跨主机的 vlan, 主机 centos1 运行两个容器 container1 和 container2, 分别属于 vlan1 和 vlan2， 主机 centos2 同样运行两个容器 container3 和 container4，分别属于 vlan1 和 vlan2。 最终，vlan1 内部的两个容器可以互相通信，vlan2 内部的两个容器也可以通信，但是 vlan1 和 vlan2 互相隔离，互相不可访问。</p>
+<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
 <li>centos7 1611</li>
 <li>Docker version 1.12.6</li>
 <li>VMware 12</li>
@@ -1294,7 +1638,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1305,7 +1649,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1316,7 +1660,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
