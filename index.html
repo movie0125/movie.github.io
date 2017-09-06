@@ -422,33 +422,14 @@
 
       
         
-          
-            <h1 id="使用docker需要考虑的问题"><a href="#使用docker需要考虑的问题" class="headerlink" title="使用docker需要考虑的问题"></a>使用docker需要考虑的问题</h1><pre><code>学会 docker 基本命令，和一些基本用法之后，进一步需要做什么呢？
-先把这些问题记录下来，有机会再记录我是怎么处理的。
-</code></pre><ul>
-<li><p>应用负责均衡，容器IP变化后，负责均衡该怎么处理</p>
-</li>
-<li><p>应用健康检查怎么处理，比如 web 服务，返回 4XX，5XX,改怎么被感知和处理</p>
-</li>
-<li><p>如何保证通一个应用的不同容器实例分布在不同的宿主机，或者分布到指定的宿主机</p>
-</li>
-<li><p>当一个宿主机故障时，节点上面的容器该怎么处理</p>
-</li>
-<li><p>怎么监控容器内应用的资源使用情况，用来决定是否增加容器集群</p>
-</li>
-<li><p>如何构建一个 测试-开发-上线 的完整流程</p>
-</li>
-<li><p>当构建的镜像非常多时，复杂的镜像关系会大大拖延容器创建和启动速度，如何处理这种关系。</p>
-</li>
-<li><p>大量删除容器，可能导致一些游离的容器，占用大量资源，怎么处理</p>
-</li>
-<li><p>挂载的 volume 数据该如何进行备份，磁盘写满该怎么处理</p>
-</li>
-<li><p>宿主机 cpu、内存、磁盘该怎么合理使用</p>
-</li>
-</ul>
-
-          
+          <h1 id="使用docker需要考虑的问题"><a href="#使用docker需要考虑的问题" class="headerlink" title="使用docker需要考虑的问题"></a>使用docker需要考虑的问题</h1><p>  学会 docker 基本命令，和一些基本用法之后，进一步需要做什么呢？先把这些问题记录下来，有机会再记录我是怎么处理的。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/06/使用docker需要考虑的问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -762,11 +743,6 @@
           <h1 id="容器跨主机多子网配置方法（-overlay-swarm）"><a href="#容器跨主机多子网配置方法（-overlay-swarm）" class="headerlink" title="容器跨主机多子网配置方法（ overlay + swarm）"></a>容器跨主机多子网配置方法（ overlay + swarm）</h1><p>  overlay 是 docker 原生的跨主机多子网方案，其核心是通过 Linux 网桥与 vxlan 隧道实现跨主机划分子网。swarm 是 docker 原生的集群管理方案。</p>
 <p>  利用 overlay 创建一个网络， docker 会在主机上面创建一个沙盒，实质上就是一个 network namespace（下面简称 netns），在 netns 中创建一个名为 br0 的网桥，并在网桥上面增加一个 vxlan 接口，每个网咯占用一个 vxlan ID。当前使用 Docker 创建的 vxlan ID范围是 256 ~ 1000，因此最多创建 745 个网络。</p>
 <p>  当容器加入某个网络时，docker 会创建一对网卡设备，一端连接到此网络 netns 中的 br0 网桥上，另一端加入容器的 netns 中，并设置 br0 的IP地址作为容器内路由默认网关地址，从而实现容器加入网络的目的。</p>
-<h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
-<li>centos7 1611</li>
-<li>Docker version 1.17</li>
-<li>VMware 12</li>
-</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/30/容器跨主机多子网配置方法（二）/#more" rel="contents">

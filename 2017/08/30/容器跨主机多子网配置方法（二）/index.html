@@ -96,7 +96,7 @@
 <meta property="og:description" content="容器跨主机多子网配置方法（ overlay + swarm）  overlay 是 docker 原生的跨主机多子网方案，其核心是通过 Linux 网桥与 vxlan 隧道实现跨主机划分子网。swarm 是 docker 原生的集群管理方案。
   利用 overlay 创建一个网络， docker 会在主机上面创建一个沙盒，实质上就是一个 network namespace（下面简称 netns）">
 <meta property="og:image" content="http://ohpl45gie.bkt.clouddn.com/%E5%AE%9E%E9%AA%8C%E5%89%8D%E7%BD%91%E7%BB%9C%E5%9B%BE.png">
-<meta property="og:updated_time" content="2017-09-06T09:11:51.983Z">
+<meta property="og:updated_time" content="2017-09-06T09:30:47.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="容器跨主机多子网配置方法（二）">
 <meta name="twitter:description" content="容器跨主机多子网配置方法（ overlay + swarm）  overlay 是 docker 原生的跨主机多子网方案，其核心是通过 Linux 网桥与 vxlan 隧道实现跨主机划分子网。swarm 是 docker 原生的集群管理方案。
@@ -430,13 +430,14 @@
         <h1 id="容器跨主机多子网配置方法（-overlay-swarm）"><a href="#容器跨主机多子网配置方法（-overlay-swarm）" class="headerlink" title="容器跨主机多子网配置方法（ overlay + swarm）"></a>容器跨主机多子网配置方法（ overlay + swarm）</h1><p>  overlay 是 docker 原生的跨主机多子网方案，其核心是通过 Linux 网桥与 vxlan 隧道实现跨主机划分子网。swarm 是 docker 原生的集群管理方案。</p>
 <p>  利用 overlay 创建一个网络， docker 会在主机上面创建一个沙盒，实质上就是一个 network namespace（下面简称 netns），在 netns 中创建一个名为 br0 的网桥，并在网桥上面增加一个 vxlan 接口，每个网咯占用一个 vxlan ID。当前使用 Docker 创建的 vxlan ID范围是 256 ~ 1000，因此最多创建 745 个网络。</p>
 <p>  当容器加入某个网络时，docker 会创建一对网卡设备，一端连接到此网络 netns 中的 br0 网桥上，另一端加入容器的 netns 中，并设置 br0 的IP地址作为容器内路由默认网关地址，从而实现容器加入网络的目的。</p>
+<a id="more"></a>
 <h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><ul>
 <li>centos7 1611</li>
 <li>Docker version 1.17</li>
-<li>VMware 12</li>
+<li><p>VMware 12</p>
+<p>在 VMware 里面启动两个centos7 虚拟机，网络选择的是 Net 模式。</p>
+</li>
 </ul>
-<a id="more"></a>
-<p>  在 VMware 里面启动两个centos7 虚拟机，网络选择的是 Net 模式。</p>
 <h2 id="实验网络拓扑图"><a href="#实验网络拓扑图" class="headerlink" title="实验网络拓扑图"></a>实验网络拓扑图</h2><blockquote>
 <p>实验前网络拓扑图</p>
 </blockquote>
