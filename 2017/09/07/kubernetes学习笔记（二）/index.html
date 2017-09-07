@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Movie,Blog,devops,openstack,ceph,ansible,puppet" />
+  <meta name="keywords" content="kubernetes概念," />
 
 
 
@@ -87,15 +87,22 @@
 
 
 
-<meta name="description" content="学习，记录，分享，收获">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Movie‘s Blog">
-<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/tags/setup模块/index.html">
+<meta name="description" content="kubernetes 核心概念剖析之 Pod  在 Kubernetes 中，pod、replication controller、service 统称为资源，并通过 APIServer 组件提供了增、删、改、查和监控接口。
+Pod  Pod 是 kubernetes 中能够被创建、调度和管理的最小单元。
+  Pod 可以想象成一个篮子，而容器则是篮子里的鸡蛋，当 Kubernetes 调度容器时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kubernetes学习笔记（二）">
+<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/09/07/kubernetes学习笔记（二）/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
-<meta property="og:description" content="学习，记录，分享，收获">
+<meta property="og:description" content="kubernetes 核心概念剖析之 Pod  在 Kubernetes 中，pod、replication controller、service 统称为资源，并通过 APIServer 组件提供了增、删、改、查和监控接口。
+Pod  Pod 是 kubernetes 中能够被创建、调度和管理的最小单元。
+  Pod 可以想象成一个篮子，而容器则是篮子里的鸡蛋，当 Kubernetes 调度容器时">
+<meta property="og:updated_time" content="2017-09-07T08:49:30.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Movie‘s Blog">
-<meta name="twitter:description" content="学习，记录，分享，收获">
+<meta name="twitter:title" content="kubernetes学习笔记（二）">
+<meta name="twitter:description" content="kubernetes 核心概念剖析之 Pod  在 Kubernetes 中，pod、replication controller、service 统称为资源，并通过 APIServer 组件提供了增、删、改、查和监控接口。
+Pod  Pod 是 kubernetes 中能够被创建、调度和管理的最小单元。
+  Pod 可以想象成一个篮子，而容器则是篮子里的鸡蛋，当 Kubernetes 调度容器时">
 
 
 
@@ -123,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/tags/setup模块/"/>
+  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/2017/09/07/kubernetes学习笔记（二）/"/>
 
 
 
 
 
-  <title> 标签: setup模块 | Movie‘s Blog </title>
+  <title> kubernetes学习笔记（二） | Movie‘s Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,7 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -301,46 +308,254 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        setup模块
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/09/07/kubernetes学习笔记（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Movie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Movie‘s Blog">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                kubernetes学习笔记（二）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T15:48:04+08:00">
+                2017-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术总结/" itemprop="url" rel="index">
+                    <span itemprop="name">技术总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/09/07/kubernetes学习笔记（二）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/07/kubernetes学习笔记（二）/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">文章阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="kubernetes-核心概念剖析之-Pod"><a href="#kubernetes-核心概念剖析之-Pod" class="headerlink" title="kubernetes 核心概念剖析之 Pod"></a>kubernetes 核心概念剖析之 Pod</h1><p>  在 Kubernetes 中，pod、replication controller、service 统称为资源，并通过 APIServer 组件提供了增、删、改、查和监控接口。</p>
+<h2 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h2><p>  Pod 是 kubernetes 中能够被创建、调度和管理的最小单元。</p>
+<p>  Pod 可以想象成一个篮子，而容器则是篮子里的鸡蛋，当 Kubernetes 调度容器时，直接把一个篮子（连同里面的鸡蛋）从一个宿主机调度到另一个宿主机。<br><a id="more"></a></p>
+<p>  篮子和鸡蛋的关系主要表现为一下几点</p>
+<ul>
+<li>一个 Pod 里的容器能有多少资源取决于篮子的大小</li>
+<li>label 是贴在篮子上</li>
+<li>IP 分配给篮子，而不是鸡蛋，篮子里面所有鸡蛋共享这个IP</li>
+<li><p>哪怕只有一个鸡蛋，仍然会分配一个篮子，篮子里也可以鸡蛋</p>
+<p>需要强调的是 Pod 里的容器是共享网络和存储的。</p>
+<p>从linux namespace 的角度看，pod 里面的容器还共享下面的 namespace:</p>
+</li>
+<li>PID namespace，可以看到另一个容器的进程</li>
+<li>IPC namespace，能通过 system V IPC 或 POSIX 消息队列进行通信</li>
+<li>UTS namespace，共享主机名</li>
+</ul>
+<h3 id="为什么需要Pod"><a href="#为什么需要Pod" class="headerlink" title="为什么需要Pod"></a>为什么需要Pod</h3><p>  Pod 是为了解决 “如何合理使用容器支撑企业级复杂应用” 这个问题而诞生的。</p>
+<p>  试想一下，有一个应用，由三个独立进程组组成，A进程负责响应和处理用户请求，B进程负责转发A产生的日志，C进程负责监控A和B的存货情况并发送定时心跳给监控组件。</p>
+<p>  在传统的部署方案中，这三个进程被部署到同一个宿主机内。采用容器方案怎么部署呢？</p>
+<p>  如果三个进程分别部署到三个容器里面，处理他们之间的关系会非常麻烦，至少需要做到下面几点：</p>
+<ul>
+<li>B 需要通 A 建立一个共享的 volume</li>
+<li>C 需要知道 A 和 B 的 PID</li>
+<li><p>还需要维护这些容器之间的关系</p>
+<p>任何重新调度，重启或者更新某个容器，都可能破坏容器之间的关系。</p>
+</li>
+</ul>
+<h3 id="labels-和-label-selectors-与-pod-协作"><a href="#labels-和-label-selectors-与-pod-协作" class="headerlink" title="labels 和 label selectors 与 pod 协作"></a>labels 和 label selectors 与 pod 协作</h3><p>  当系统中运行者数量庞大的 pod 时，如何有效的分类与组织这些 pod 就成了一个重要的问题。Kubernetes 的解决方案是 labels。每个 pod 都有一个标签，是一组键值对，用来对 pod 进行选择和分类</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"labels"</span>: &#123;</div><div class="line">  <span class="string">"key1"</span>: <span class="string">"value1"</span>,</div><div class="line">  <span class="string">"key2"</span>: <span class="string">"value2"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  kubernetes 设计者引入 labels 的主要目的是面相用户，包含 kubernetns 对象功能性和特征描述的 labels 比对象名或者 UUID 更加友好和有意义，而且使用户能够以一种松耦合的方式实现自身组织结构到系统对象之间的映射，无需客户端存储这些映射关系。但是 labels 属性一般不直接作为系统内部唯一识别 kubernetes 对象的依据，因为 labels 并不保证唯一性。一般情况下，允许甚至希望不同的 kubernetes 对象携带一个或一组相同的 labels。</p>
+<p>  label selector 是 kubernetes 核心的分组机制，通过 label selector，用户能够识别一组有共同特征或属性相同的 kubernetes 对象（后面简称对象 ）。一个 label selector 可以由多个查询条件组成，逗号隔离，这些条件需要同时满足。</p>
+<h3 id="pod-的使用场景"><a href="#pod-的使用场景" class="headerlink" title="pod 的使用场景"></a>pod 的使用场景</h3><p>  下面举例几种使用场景：</p>
+<ul>
+<li>一个内容姑那里系统，包括文件和数据加载、本地缓存管理系统的组合</li>
+<li>一个常规应用和它的日志和检查点备份、压缩、快照等系统等组合</li>
+<li>一个常规应用和它的数据变化检测器，日志实时收集，事件发布等组合</li>
+<li><p>一个常规服务和它的网络代理，桥接和适配器等网络辅助组件的组合</p>
+<p>尽量不要在单个 pod 中运行同一个应用的多个实例。</p>
+</li>
+</ul>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/01/07/ansible-setup-module-problem-md/" itemprop="url">
-              
-                <span itemprop="name">ansible的setup模块可能导致进程卡死</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>多谢捧场，支持原创！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ohpl45gie.bkt.clouddn.com/weixinplay.png" alt="Movie WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ohpl45gie.bkt.clouddn.com/aliplay.png" alt="Movie Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-07T22:11:40+08:00"
-              content="2017-01-07" >
-          01-07
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/kubernetes概念/" rel="tag"># kubernetes概念</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/06/使用docker需要考虑的问题/" rel="next" title="使用docker需要考虑的问题">
+                <i class="fa fa-chevron-left"></i> 使用docker需要考虑的问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -348,6 +563,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
 
         </div>
         
@@ -367,8 +588,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo2.png"
@@ -448,6 +678,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kubernetes-核心概念剖析之-Pod"><span class="nav-number">1.</span> <span class="nav-text">kubernetes 核心概念剖析之 Pod</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pod"><span class="nav-number">1.1.</span> <span class="nav-text">Pod</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要Pod"><span class="nav-number">1.1.1.</span> <span class="nav-text">为什么需要Pod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#labels-和-label-selectors-与-pod-协作"><span class="nav-number">1.1.2.</span> <span class="nav-text">labels 和 label selectors 与 pod 协作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pod-的使用场景"><span class="nav-number">1.1.3.</span> <span class="nav-text">pod 的使用场景</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -575,6 +821,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
