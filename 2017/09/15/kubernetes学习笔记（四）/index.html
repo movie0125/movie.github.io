@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="docker," />
+  <meta name="keywords" content="kubernetes概念," />
 
 
 
@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="Link 原理解析  在使用容器部署服务的时候，经常碰到容器之间交互的情况。早期的解决方法是容器向外界进行端口映射的方式实现通信，但是这种方式不够安全，因为提供服务的容器仅仅希望个别容器可以访问。而且这种方式需要经过NAT,效率相对较低。所以 Link（Docker 连接系统） 通信应运而生。Link 可以在两个容器之间建立一个安全的通道，使得接收容器可以通过通道得到源容器指定的相关信息。">
+<meta name="description" content="kubernetes 核心概念剖析之 service">
 <meta property="og:type" content="article">
-<meta property="og:title" content="容器Link原理解析">
-<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/09/01/容器Link原理解析/index.html">
+<meta property="og:title" content="kubernetes学习笔记（四）">
+<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/09/15/kubernetes学习笔记（四）/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
-<meta property="og:description" content="Link 原理解析  在使用容器部署服务的时候，经常碰到容器之间交互的情况。早期的解决方法是容器向外界进行端口映射的方式实现通信，但是这种方式不够安全，因为提供服务的容器仅仅希望个别容器可以访问。而且这种方式需要经过NAT,效率相对较低。所以 Link（Docker 连接系统） 通信应运而生。Link 可以在两个容器之间建立一个安全的通道，使得接收容器可以通过通道得到源容器指定的相关信息。">
-<meta property="og:updated_time" content="2017-09-04T03:04:18.874Z">
+<meta property="og:description" content="kubernetes 核心概念剖析之 service">
+<meta property="og:updated_time" content="2017-09-15T10:17:22.687Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="容器Link原理解析">
-<meta name="twitter:description" content="Link 原理解析  在使用容器部署服务的时候，经常碰到容器之间交互的情况。早期的解决方法是容器向外界进行端口映射的方式实现通信，但是这种方式不够安全，因为提供服务的容器仅仅希望个别容器可以访问。而且这种方式需要经过NAT,效率相对较低。所以 Link（Docker 连接系统） 通信应运而生。Link 可以在两个容器之间建立一个安全的通道，使得接收容器可以通过通道得到源容器指定的相关信息。">
+<meta name="twitter:title" content="kubernetes学习笔记（四）">
+<meta name="twitter:description" content="kubernetes 核心概念剖析之 service">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/2017/09/01/容器Link原理解析/"/>
+  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/2017/09/15/kubernetes学习笔记（四）/"/>
 
 
 
 
 
-  <title> 容器Link原理解析 | Movie‘s Blog </title>
+  <title> kubernetes学习笔记（四） | Movie‘s Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -312,7 +312,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/09/01/容器Link原理解析/">
+    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/09/15/kubernetes学习笔记（四）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Movie">
@@ -333,7 +333,7 @@
             
             
               
-                容器Link原理解析
+                kubernetes学习笔记（四）
               
             
           </h1>
@@ -348,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-01T16:56:19+08:00">
-                2017-09-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T16:46:43+08:00">
+                2017-09-15
               </time>
             
 
@@ -390,8 +390,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/09/01/容器Link原理解析/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/01/容器Link原理解析/" itemprop="commentsCount"></span>
+                <a href="/2017/09/15/kubernetes学习笔记（四）/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/15/kubernetes学习笔记（四）/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -422,45 +422,33 @@
       
 
       
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=401723037&auto=0&height=66"></iframe>
-
-<h1 id="Link-原理解析"><a href="#Link-原理解析" class="headerlink" title="Link 原理解析"></a>Link 原理解析</h1><p>  在使用容器部署服务的时候，经常碰到容器之间交互的情况。早期的解决方法是容器向外界进行端口映射的方式实现通信，但是这种方式不够安全，因为提供服务的容器仅仅希望个别容器可以访问。而且这种方式需要经过NAT,效率相对较低。所以 Link（Docker 连接系统） 通信应运而生。Link 可以在两个容器之间建立一个安全的通道，使得接收容器可以通过通道得到源容器指定的相关信息。</p>
-<a id="more"></a>
-<h2 id="Link-使用方法"><a href="#Link-使用方法" class="headerlink" title="Link 使用方法"></a>Link 使用方法</h2><p>  Link 典型使用场景是 web + db 两个容器通信访问。</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker run -tid --name db mysql:latest</div><div class="line">docker run -tid -P --name web  --link db:webdb myweb bash</div></pre></td></tr></table></figure>
-<p>  –link 参数的格式  <code>--link &lt;name or id&gt;:alias</code>。其中 name 是容器通过 –name指定或者自动生成的名字；alias 是容器的别名，是接收容器访问源容器的名字。</p>
-<p>  此例中，webdb 作为接受容器或者父容器，db 作为源容器或者子容器。web 容器可以访问db 容器中的服务。接收容器和源容器的关系是 N:N ，也就是都可以指定多个。</p>
-<h2 id="Link-原理"><a href="#Link-原理" class="headerlink" title="Link 原理"></a>Link 原理</h2><p>  Link 是怎么工作的呢？</p>
+        <h1 id="kubernetes-核心概念剖析之-service"><a href="#kubernetes-核心概念剖析之-service" class="headerlink" title="kubernetes 核心概念剖析之 service"></a>kubernetes 核心概念剖析之 service</h1><a id="more"></a>
+<p>  service的作用，kubernetes 中 pod 的IP是不固定的，因此需要一个代理来确保需要使用pod的应用不需要知道pod的真实IP地址。另一个原因是当使用replication controller创建多个pod副本时，需要一个代理来为这些pod做负载均衡。</p>
+<p>  kubernetes service 主要由一个IP地址和一个label selector组成，在创建的时候，每个service便被分配一个独一无二的IP，该地址与service的生命周期相同且不在更改。</p>
+<h2 id="service的工作原理"><a href="#service的工作原理" class="headerlink" title="service的工作原理"></a>service的工作原理</h2><p>  kubernetes集群每个节点上都运行着一个服务代理kube-proxy，它是负责整个service实现的主要组件。</p>
+<p>  对于每个service，kube-proxy都会在宿主机上随机监听一个端口与这个service对应起来，它会在宿主机上创建iptables规则，将portal IP加service port的流量重定向到上述端口。这样所有发往service portal的流量都会经过iptables重定向到它对应的随机端口，再经过kube-proxy的代理到某个后端pod。kube-proxy里会维护端口与service的映射关系，以及service代理的pod清单，至于具体选择哪一个pod则由路由策略决定。</p>
+<p>  kube-proxy还会实时监测kubernetes的master节点上etcd中service和endpoint对象的增加和删除信息，从而保证了后端被代理pod的IP和端口变化可以及时更新到它维护的路由信息中。</p>
+<h2 id="service的自发现机制"><a href="#service的自发现机制" class="headerlink" title="service的自发现机制"></a>service的自发现机制</h2><p>  kubernetes中有一个重要的服务自发现特性。一旦一个service被创建，该service的portal信息都会被注入到已经在运行的pod中供他们使用。支持两种service发现机制：环境变量和DNS。</p>
+<h3 id="环境变量方式"><a href="#环境变量方式" class="headerlink" title="环境变量方式"></a>环境变量方式</h3><p>  kubernetes创建pod时会自动添加所有可用的service环境变量到该pod中，如有需要，这些环境变量会被注入到pod内的容器中。这些环境变量类似{SVCNAME}_SERVICE_HOST,{SVCNAME}_SERVICE_ORT, SVCNAME就是service的名字，全部替换为大写且将破折号替换成下划线。</p>
+<p>  需要注意的是，环境变量的注入只发生在pod创建时，这就要求service必须在pod创建之前，否则相关环境变量就无法注入到pod中。</p>
+<h3 id="DNS方式"><a href="#DNS方式" class="headerlink" title="DNS方式"></a>DNS方式</h3><p>  kubernetes集群支撑一个DNS服务器组件，它使用kubernetes的watchAPI，不间断的监测新service的创建并为每个service新创建一个DNS记录。如果DNS在整个集群范围内都可以访问，那么所有pod都能够自动解析service域名。</p>
+<h4 id="DNS解析示例"><a href="#DNS解析示例" class="headerlink" title="DNS解析示例"></a>DNS解析示例</h4><p>  service名字web，service所在namespace是myns，这样就会一条DNS记录：web.myns。任何myns中的pod只需要访问域名web即可访问到该service，而其他namespace中的pod则必须访问完整的namespace前缀，也就是 web.myns。解析结果就是service的入口IP地址，而service的监听端口是用户指定的，这样就可以拿到完整的IP:PORT组合。</p>
+<h4 id="DNS方式存在问题"><a href="#DNS方式存在问题" class="headerlink" title="DNS方式存在问题"></a>DNS方式存在问题</h4><p>  DNS方式相比环境变量方式，使用上非常方便，但是也需要考虑由于DNS缓存问题可能会导致的不可靠情况。</p>
 <ul>
-<li>设置接收容器的环境变量</li>
-<li>更新接收容器的 /etc/hosts 文件</li>
-<li>添加 iptables 规则使容器连接的两个容器可以通信</li>
-</ul>
-<h3 id="设置接收容器环境变量"><a href="#设置接收容器环境变量" class="headerlink" title="设置接收容器环境变量"></a>设置接收容器环境变量</h3><p>  当两个容器通过 <code>--link</code> 建立连接后，会在接收容器中额外设置一些环境变量，用来保存源容器的一些信息，环境变量包括下面两个方面：</p>
-<ul>
-<li>每个源容器，接收容器都会设置一个名为 <code>&lt;alias&gt;_NAME</code> 的环境变量，<code>alias</code> 为源容器的别名，如上面的例子， WEBDB_NAME=/web/webdb</li>
-<li>源容器中预先设置的环境变量同样会设置在接收容器的环境变量中，比如：<ul>
-<li><code>Dockerfile</code> 文件中 ENV 设置的环境变量</li>
-<li><code>docker run</code> 命令中 <code>-e   --env=[]</code> 设置的环境变量</li>
-</ul>
-</li>
-<li>源容器暴露的端口也会设置到接收容器的环境变量中，比如 db 容器 IP 为 <code>172.17.0.2</code>，对外暴露的端口为 <code>3306</code>，则会在接收容器中设置如下环境变量：<ul>
-<li>WEBDB_PORT_3306_TCP_ADDR=172.17.0.2</li>
-<li>WEBDB_PORT_3306_TCP_PORT=3306</li>
-<li>WEBDB_PORT_3306_TCP_PROTO=tcp</li>
-<li>WEBDB_PORT_3306_TCP=tcp://172.17.0.2:3306</li>
-<li>WEBDB_PORT=tcp://172.17.0.2:3306<br>前面四个环境变量是为每个暴露的端口设置的，最后一个是所有暴露端口中最小的一个端口的 URL（TCP 优先）。</li>
-</ul>
+<li>DNS函数库对DNS TTL（缓存时间） 支持不良的问题由来已久，且server端通常会将域名查找结果进行缓存。如果service在TTL时间内故障，客户端会解析到错误的DNS结果。</li>
+<li>很多APP都是进行一次域名查找然后将结果缓存起来，同样会导致上面的情况发生。</li>
+<li><p>即使APP和DNS函数库能够进行恰当的域名重解析操作，每个客户端频繁的域名重解析请求，将会给系统带来极大的负载。</p>
+<p>就目前的情况来看，使用kubernetes的service DNS机制是一个不错的选择，可以在一定程度上面解决service环境变量泛滥的问题。</p>
 </li>
 </ul>
-<h3 id="更新接收容器的-etc-hosts-文件"><a href="#更新接收容器的-etc-hosts-文件" class="headerlink" title="更新接收容器的 /etc/hosts 文件"></a>更新接收容器的 /etc/hosts 文件</h3><p>  Docker 中的 IP 地址是不固定的，容器重启后IP 地址可能就和之前不一样了，虽然设置了环境变量，但是如果源容器重启了，接收容器的环境变量不会自动更新。因此，Link 操作除了将 link 信息保存在环境变量之外，还在 /etc/hosts 文件中添加一项配置 <code>&lt;ip&gt;  &lt;alias&gt;</code>，用来解析源容器的 IP 地址。当源容器重启之后，会自动更新接收容器中的 /etc/hosts 文件。因此使用这个 alias 别名来配置应用程序，就不需要担心源容器 IP 的变化。</p>
-<h3 id="添加-iptables-规则"><a href="#添加-iptables-规则" class="headerlink" title="添加 iptables 规则"></a>添加 iptables 规则</h3><p>  设置了环境变量和更新 /etc/hosts 文件之后，接收容器仅仅是得到了源容器的信息，并不代表源容器和接收容器在网络上可以互相通信。为了安全，Docker daemon –icc=false 被设置时，容器间的网络通信是被禁止的。这个时候就需要添加特定的 iptables 规则。</p>
-<p>  处理过程如下：</p>
+<h2 id="service外部可路由性设计"><a href="#service外部可路由性设计" class="headerlink" title="service外部可路由性设计"></a>service外部可路由性设计</h2><p>  一般情况下，service绑定的入口IP地址是由kubernetes在一个特定的IP网段中随机选取的。该网段是kubernetes维护的一个私有IP网段，除非用户指定，一般情况下不具备外部可访问性，而且也不是用户内网的一个网段。但是实际场景中，一些service被要求可以通过外部访问。</p>
+<p>  service创建的时候可以设置一个外部IP地址池publicIPs，在service的描述文件中添加publicIPs字段。这时kubernetes会将publicIPs数组中的IP地址与portal IP同等对待，kube-proxy同样会建立iptables规则。这样service就可以使用这个外部IP来提供代理服务了。</p>
+<p>  这里需要强调一个service的设计原则，任何一个kube-proxy都能够将流量正确的导向任何一个被代理的pod，而这个kube-proxy不需要和被代理的pod在同一个宿主机上。这一点在使用外部IP的service时尤其重要。比如，所有宿主机都有一个外部网卡，一个内部IP，这时如果把宿主机A的外部IP配置在了某个service的publicIPs字段下，那就只能通过这个外部IP来访问这个service后端的pod，哪怕这个pod运行在其他宿主机上。但是如果把所有宿主机的外部IP都配置在这个service的publicIPs字段下，那么就可以通过任意一个宿主机的外部IP访问到这个被代理的pod了，显然大多数情况下这么做非常多余。</p>
+<h2 id="service目前存在的不足"><a href="#service目前存在的不足" class="headerlink" title="service目前存在的不足"></a>service目前存在的不足</h2><p>  kubernetes中使用iptables和kube-proxy来解析service的入口IP地址，在中小规模的集群中运行良好，但是当service的数量超过一定规模时，仍然有一些问题。</p>
 <ul>
-<li>得到源容器所有暴露的端口，不仅仅是和主机做了端口映射的端口。</li>
-<li>为每一个端口添加 iptables 规则，使得接收容器可以访问。</li>
+<li>service环境变量泛滥</li>
+<li>service及其相关pod的创建时间先后顺序的制约关系</li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>  Link 是一种比端口映射更亲密的容器间通信方式，提供更安全，高效的服务。适合各个组件之间通信的应用。</p>
 
       
     </div>
@@ -511,7 +499,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"># docker</a>
+            <a href="/tags/kubernetes概念/" rel="tag"># kubernetes概念</a>
           
         </div>
       
@@ -524,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/30/容器跨主机多子网配置方法（二）/" rel="next" title="容器跨主机多子网配置方法（二）">
-                <i class="fa fa-chevron-left"></i> 容器跨主机多子网配置方法（二）
+              <a href="/2017/09/08/kubernetes学习笔记（三）/" rel="next" title="kubernetes学习笔记（三）">
+                <i class="fa fa-chevron-left"></i> kubernetes学习笔记（三）
               </a>
             
           </div>
@@ -533,10 +521,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/06/使用docker需要考虑的问题/" rel="prev" title="使用docker需要考虑的问题">
-                使用docker需要考虑的问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -685,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Link-原理解析"><span class="nav-number">1.</span> <span class="nav-text">Link 原理解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Link-使用方法"><span class="nav-number">1.1.</span> <span class="nav-text">Link 使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Link-原理"><span class="nav-number">1.2.</span> <span class="nav-text">Link 原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置接收容器环境变量"><span class="nav-number">1.2.1.</span> <span class="nav-text">设置接收容器环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新接收容器的-etc-hosts-文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">更新接收容器的 /etc/hosts 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-iptables-规则"><span class="nav-number">1.2.3.</span> <span class="nav-text">添加 iptables 规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kubernetes-核心概念剖析之-service"><span class="nav-number">1.</span> <span class="nav-text">kubernetes 核心概念剖析之 service</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#service的工作原理"><span class="nav-number">1.1.</span> <span class="nav-text">service的工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#service的自发现机制"><span class="nav-number">1.2.</span> <span class="nav-text">service的自发现机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量方式"><span class="nav-number">1.2.1.</span> <span class="nav-text">环境变量方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS方式"><span class="nav-number">1.2.2.</span> <span class="nav-text">DNS方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS解析示例"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">DNS解析示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS方式存在问题"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">DNS方式存在问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#service外部可路由性设计"><span class="nav-number">1.3.</span> <span class="nav-text">service外部可路由性设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#service目前存在的不足"><span class="nav-number">1.4.</span> <span class="nav-text">service目前存在的不足</span></a></li></ol></li></ol></div>
             
 
           </div>

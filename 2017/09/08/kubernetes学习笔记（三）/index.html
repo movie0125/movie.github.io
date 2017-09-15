@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/09/08/kubernetes学习笔记（三）/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
 <meta property="og:description" content="kubernetes 核心概念剖析之 replication controller">
-<meta property="og:updated_time" content="2017-09-08T07:36:35.951Z">
+<meta property="og:updated_time" content="2017-09-08T07:39:23.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kubernetes学习笔记（三）">
 <meta name="twitter:description" content="kubernetes 核心概念剖析之 replication controller">
@@ -462,14 +462,14 @@
 <tr>
 <th>场景</th>
 <th>发生事件</th>
-<th>RestartPolicy=Always</th>
-<th>RestartPolicy=OnFailure</th>
-<th>RestartPolicy=Never</th>
+<th>策略Always</th>
+<th>策略OnFailure</th>
+<th>策略Never</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1个容器 running ==》 退出</td>
+<td>1个容器 退出</td>
 <td>正常退出，发送 completion 完成事件，否则发送 failure 事件</td>
 <td>重启容器，pod 仍然处于 running 状态</td>
 <td>容器正常退出，pod 变成succeeded 状态，否则重启容器，并处于 running 状态</td>
@@ -593,6 +593,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/09/15/kubernetes学习笔记（四）/" rel="prev" title="kubernetes学习笔记（四）">
+                kubernetes学习笔记（四） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -665,7 +669,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

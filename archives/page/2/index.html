@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="docker," />
+  <meta name="keywords" content="Movie,Blog,devops,openstack,ceph,ansible,puppet" />
 
 
 
@@ -87,16 +87,15 @@
 
 
 
-<meta name="description" content="Link 原理解析  在使用容器部署服务的时候，经常碰到容器之间交互的情况。早期的解决方法是容器向外界进行端口映射的方式实现通信，但是这种方式不够安全，因为提供服务的容器仅仅希望个别容器可以访问。而且这种方式需要经过NAT,效率相对较低。所以 Link（Docker 连接系统） 通信应运而生。Link 可以在两个容器之间建立一个安全的通道，使得接收容器可以通过通道得到源容器指定的相关信息。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="容器Link原理解析">
-<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/09/01/容器Link原理解析/index.html">
+<meta name="description" content="学习，记录，分享，收获">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Movie‘s Blog">
+<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/archives/page/2/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
-<meta property="og:description" content="Link 原理解析  在使用容器部署服务的时候，经常碰到容器之间交互的情况。早期的解决方法是容器向外界进行端口映射的方式实现通信，但是这种方式不够安全，因为提供服务的容器仅仅希望个别容器可以访问。而且这种方式需要经过NAT,效率相对较低。所以 Link（Docker 连接系统） 通信应运而生。Link 可以在两个容器之间建立一个安全的通道，使得接收容器可以通过通道得到源容器指定的相关信息。">
-<meta property="og:updated_time" content="2017-09-04T03:04:18.874Z">
+<meta property="og:description" content="学习，记录，分享，收获">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="容器Link原理解析">
-<meta name="twitter:description" content="Link 原理解析  在使用容器部署服务的时候，经常碰到容器之间交互的情况。早期的解决方法是容器向外界进行端口映射的方式实现通信，但是这种方式不够安全，因为提供服务的容器仅仅希望个别容器可以访问。而且这种方式需要经过NAT,效率相对较低。所以 Link（Docker 连接系统） 通信应运而生。Link 可以在两个容器之间建立一个安全的通道，使得接收容器可以通过通道得到源容器指定的相关信息。">
+<meta name="twitter:title" content="Movie‘s Blog">
+<meta name="twitter:description" content="学习，记录，分享，收获">
 
 
 
@@ -124,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/2017/09/01/容器Link原理解析/"/>
+  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/archives/page/2/"/>
 
 
 
 
 
-  <title> 容器Link原理解析 | Movie‘s Blog </title>
+  <title> 归档 | Movie‘s Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -164,7 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,257 +301,70 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/09/01/容器Link原理解析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Movie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/logo2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Movie‘s Blog">
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 11 篇日志。 继续努力。
     </span>
 
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                容器Link原理解析
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-01T16:56:19+08:00">
-                2017-09-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术总结/" itemprop="url" rel="index">
-                    <span itemprop="name">技术总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/09/01/容器Link原理解析/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/01/容器Link原理解析/" itemprop="commentsCount"></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv">文章阅读
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
 
       
       
-
       
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=401723037&auto=0&height=66"></iframe>
 
-<h1 id="Link-原理解析"><a href="#Link-原理解析" class="headerlink" title="Link 原理解析"></a>Link 原理解析</h1><p>  在使用容器部署服务的时候，经常碰到容器之间交互的情况。早期的解决方法是容器向外界进行端口映射的方式实现通信，但是这种方式不够安全，因为提供服务的容器仅仅希望个别容器可以访问。而且这种方式需要经过NAT,效率相对较低。所以 Link（Docker 连接系统） 通信应运而生。Link 可以在两个容器之间建立一个安全的通道，使得接收容器可以通过通道得到源容器指定的相关信息。</p>
-<a id="more"></a>
-<h2 id="Link-使用方法"><a href="#Link-使用方法" class="headerlink" title="Link 使用方法"></a>Link 使用方法</h2><p>  Link 典型使用场景是 web + db 两个容器通信访问。</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker run -tid --name db mysql:latest</div><div class="line">docker run -tid -P --name web  --link db:webdb myweb bash</div></pre></td></tr></table></figure>
-<p>  –link 参数的格式  <code>--link &lt;name or id&gt;:alias</code>。其中 name 是容器通过 –name指定或者自动生成的名字；alias 是容器的别名，是接收容器访问源容器的名字。</p>
-<p>  此例中，webdb 作为接受容器或者父容器，db 作为源容器或者子容器。web 容器可以访问db 容器中的服务。接收容器和源容器的关系是 N:N ，也就是都可以指定多个。</p>
-<h2 id="Link-原理"><a href="#Link-原理" class="headerlink" title="Link 原理"></a>Link 原理</h2><p>  Link 是怎么工作的呢？</p>
-<ul>
-<li>设置接收容器的环境变量</li>
-<li>更新接收容器的 /etc/hosts 文件</li>
-<li>添加 iptables 规则使容器连接的两个容器可以通信</li>
-</ul>
-<h3 id="设置接收容器环境变量"><a href="#设置接收容器环境变量" class="headerlink" title="设置接收容器环境变量"></a>设置接收容器环境变量</h3><p>  当两个容器通过 <code>--link</code> 建立连接后，会在接收容器中额外设置一些环境变量，用来保存源容器的一些信息，环境变量包括下面两个方面：</p>
-<ul>
-<li>每个源容器，接收容器都会设置一个名为 <code>&lt;alias&gt;_NAME</code> 的环境变量，<code>alias</code> 为源容器的别名，如上面的例子， WEBDB_NAME=/web/webdb</li>
-<li>源容器中预先设置的环境变量同样会设置在接收容器的环境变量中，比如：<ul>
-<li><code>Dockerfile</code> 文件中 ENV 设置的环境变量</li>
-<li><code>docker run</code> 命令中 <code>-e   --env=[]</code> 设置的环境变量</li>
-</ul>
-</li>
-<li>源容器暴露的端口也会设置到接收容器的环境变量中，比如 db 容器 IP 为 <code>172.17.0.2</code>，对外暴露的端口为 <code>3306</code>，则会在接收容器中设置如下环境变量：<ul>
-<li>WEBDB_PORT_3306_TCP_ADDR=172.17.0.2</li>
-<li>WEBDB_PORT_3306_TCP_PORT=3306</li>
-<li>WEBDB_PORT_3306_TCP_PROTO=tcp</li>
-<li>WEBDB_PORT_3306_TCP=tcp://172.17.0.2:3306</li>
-<li>WEBDB_PORT=tcp://172.17.0.2:3306<br>前面四个环境变量是为每个暴露的端口设置的，最后一个是所有暴露端口中最小的一个端口的 URL（TCP 优先）。</li>
-</ul>
-</li>
-</ul>
-<h3 id="更新接收容器的-etc-hosts-文件"><a href="#更新接收容器的-etc-hosts-文件" class="headerlink" title="更新接收容器的 /etc/hosts 文件"></a>更新接收容器的 /etc/hosts 文件</h3><p>  Docker 中的 IP 地址是不固定的，容器重启后IP 地址可能就和之前不一样了，虽然设置了环境变量，但是如果源容器重启了，接收容器的环境变量不会自动更新。因此，Link 操作除了将 link 信息保存在环境变量之外，还在 /etc/hosts 文件中添加一项配置 <code>&lt;ip&gt;  &lt;alias&gt;</code>，用来解析源容器的 IP 地址。当源容器重启之后，会自动更新接收容器中的 /etc/hosts 文件。因此使用这个 alias 别名来配置应用程序，就不需要担心源容器 IP 的变化。</p>
-<h3 id="添加-iptables-规则"><a href="#添加-iptables-规则" class="headerlink" title="添加 iptables 规则"></a>添加 iptables 规则</h3><p>  设置了环境变量和更新 /etc/hosts 文件之后，接收容器仅仅是得到了源容器的信息，并不代表源容器和接收容器在网络上可以互相通信。为了安全，Docker daemon –icc=false 被设置时，容器间的网络通信是被禁止的。这个时候就需要添加特定的 iptables 规则。</p>
-<p>  处理过程如下：</p>
-<ul>
-<li>得到源容器所有暴露的端口，不仅仅是和主机做了端口映射的端口。</li>
-<li>为每一个端口添加 iptables 规则，使得接收容器可以访问。</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>  Link 是一种比端口映射更亲密的容器间通信方式，提供更安全，高效的服务。适合各个组件之间通信的应用。</p>
-
-      
-    </div>
-
-    <div>
       
         
-
-      
-    </div>
-
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>多谢捧场，支持原创！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://ohpl45gie.bkt.clouddn.com/weixinplay.png" alt="Movie WeChat Pay"/>
-          <p>微信打赏</p>
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
         </div>
       
       
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="http://ohpl45gie.bkt.clouddn.com/aliplay.png" alt="Movie Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
-  </div>
-
 
       
-    </div>
 
-    <div>
-      
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/docker/" rel="tag"># docker</a>
-          
-        </div>
-      
-
-      
+            <a class="post-title-link" href="/2016/12/07/helloblog/" itemprop="url">
+              
+                <span itemprop="name">helloblog</span>
+              
+            </a>
         
-      
+      </h1>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/08/30/容器跨主机多子网配置方法（二）/" rel="next" title="容器跨主机多子网配置方法（二）">
-                <i class="fa fa-chevron-left"></i> 容器跨主机多子网配置方法（二）
-              </a>
-            
-          </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-12-07T15:29:55+08:00"
+              content="2016-12-07" >
+          12-07
+        </time>
+      </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/06/使用docker需要考虑的问题/" rel="prev" title="使用docker需要考虑的问题">
-                使用docker需要考虑的问题 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+    
+
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
 
 
           </div>
@@ -560,12 +372,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div id="SOHUCS"></div>
-    
-  </div>
-
 
         </div>
         
@@ -585,17 +391,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo2.png"
@@ -675,22 +472,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Link-原理解析"><span class="nav-number">1.</span> <span class="nav-text">Link 原理解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Link-使用方法"><span class="nav-number">1.1.</span> <span class="nav-text">Link 使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Link-原理"><span class="nav-number">1.2.</span> <span class="nav-text">Link 原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置接收容器环境变量"><span class="nav-number">1.2.1.</span> <span class="nav-text">设置接收容器环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新接收容器的-etc-hosts-文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">更新接收容器的 /etc/hosts 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-iptables-规则"><span class="nav-number">1.2.3.</span> <span class="nav-text">添加 iptables 规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -818,9 +599,11 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   
