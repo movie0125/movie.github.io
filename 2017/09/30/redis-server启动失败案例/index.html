@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Movie,Blog,devops,openstack,ceph,ansible,puppet" />
+  <meta name="keywords" content="redis,故障案例," />
 
 
 
@@ -87,15 +87,16 @@
 
 
 
-<meta name="description" content="学习，记录，分享，收获">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Movie‘s Blog">
-<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/tags/hexo/index.html">
+<meta name="description" content="redis-server启动失败案例整理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis-server启动失败案例.md">
+<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/09/30/redis-server启动失败案例/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
-<meta property="og:description" content="学习，记录，分享，收获">
+<meta property="og:description" content="redis-server启动失败案例整理">
+<meta property="og:updated_time" content="2017-09-30T08:51:25.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Movie‘s Blog">
-<meta name="twitter:description" content="学习，记录，分享，收获">
+<meta name="twitter:title" content="redis-server启动失败案例.md">
+<meta name="twitter:description" content="redis-server启动失败案例整理">
 
 
 
@@ -123,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/tags/hexo/"/>
+  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/2017/09/30/redis-server启动失败案例/"/>
 
 
 
 
 
-  <title> 标签: hexo | Movie‘s Blog </title>
+  <title> redis-server启动失败案例.md | Movie‘s Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -163,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -301,46 +302,205 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        hexo
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/09/30/redis-server启动失败案例/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Movie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/logo2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Movie‘s Blog">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                redis-server启动失败案例.md
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T16:45:42+08:00">
+                2017-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术总结/" itemprop="url" rel="index">
+                    <span itemprop="name">技术总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/09/30/redis-server启动失败案例/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/30/redis-server启动失败案例/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">文章阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="redis-server启动失败案例整理"><a href="#redis-server启动失败案例整理" class="headerlink" title="redis-server启动失败案例整理"></a>redis-server启动失败案例整理</h1><a id="more"></a>
+<h2 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h2><h3 id="故障现象"><a href="#故障现象" class="headerlink" title="故障现象"></a>故障现象</h3><p>  系统断电故障，开机后发现redis服务无法正常启动<br>  查看日志文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim /var/<span class="built_in">log</span>/redis/redis_6570.log</div><div class="line"></div><div class="line">33003:M 29 Sep 14:26:43.400 <span class="comment"># WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.</span></div><div class="line">33003:M 29 Sep 14:26:50.933 <span class="comment"># Bad file format reading the append only file: make a backup of your AOF file, then use ./redis-check-aof --fix &lt;filename&gt;</span></div></pre></td></tr></table></figure>
+<p>  根据日志提示，aof文件损坏，找到aof文件路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ll /var/lib/redis</span></div><div class="line">total 8499368</div><div class="line">-rw-r--r-- 1 root root 3049037743 Sep 29 14:27 appndonly_6570.aof</div><div class="line">-rw-r--r-- 1 root root 2005852037 Sep 29 14:27 appndonly_6571.aof</div><div class="line">-rw-r--r-- 1 root root 2500615451 Sep 25 11:11 dump_6570.rdb</div><div class="line">-rw-r--r-- 1 root root 1147819195 Sep 29 14:30 dump_6571.rdb</div><div class="line">-rw-r--r-- 1 root root        774 Sep 29 14:30 nodes-6570.conf</div><div class="line">-rw-r--r-- 1 root root        774 Sep 29 14:30 nodes-6571.conf</div></pre></td></tr></table></figure>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>  修复aof文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">redis-check-aof --fix appndonly_6570.aof</div><div class="line">redis-check-aof --fix appndonly_6571.aof</div></pre></td></tr></table></figure>
+<p>  启动服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">redis-server  /etc/redis/redis_6570.conf</div><div class="line">redis-server  /etc/redis/redis_6571.conf</div></pre></td></tr></table></figure>
+<p>检查集群服务状态，三个 Master， 三个 Slave 为正常</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># redis-trib.rb check 127.0.0.1:6570</span></div><div class="line">&gt;&gt;&gt; Performing Cluster Check (using node 127.0.0.1:6570)</div><div class="line">M: d0f69094f2b7dc51d92beaf7f25951ddfdcc8dc2 127.0.0.1:6570</div><div class="line">   slots:5461-10922 (5462 slots) master</div><div class="line">   1 additional replica(s)</div><div class="line">M: 951f03230d046e085b664d96e28af933e0754123 10.168.14.15:6571</div><div class="line">   slots:0-5460 (5461 slots) master</div><div class="line">   1 additional replica(s)</div><div class="line">S: ea62a89ae08274704180d24803cb7d51beb3f511 10.168.14.14:6570</div><div class="line">   slots: (0 slots) slave</div><div class="line">   replicates 951f03230d046e085b664d96e28af933e0754123</div><div class="line">M: 89503f4af14b147b340d965b298e5da4cae5bd36 10.168.14.16:6570</div><div class="line">   slots:10923-16383 (5461 slots) master</div><div class="line">   1 additional replica(s)</div><div class="line">S: 959056aa32bcfd0dd7750dbbb9a3b88661ed77af 10.168.14.14:6571</div><div class="line">   slots: (0 slots) slave</div><div class="line">   replicates d0f69094f2b7dc51d92beaf7f25951ddfdcc8dc2</div><div class="line">S: e0548441c7f5a07ecd31df77a3e5b085dbaa48d0 10.168.14.16:6571</div><div class="line">   slots: (0 slots) slave</div><div class="line">   replicates 89503f4af14b147b340d965b298e5da4cae5bd36</div><div class="line">[OK] All nodes agree about slots configuration.</div><div class="line">&gt;&gt;&gt; Check <span class="keyword">for</span> open slots...</div><div class="line">&gt;&gt;&gt; Check slots coverage...</div><div class="line">[OK] All 16384 slots covered.</div></pre></td></tr></table></figure>
+      
+    </div>
 
-      <h1 class="post-title">
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/12/07/helloblog/" itemprop="url">
-              
-                <span itemprop="name">helloblog</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-07T15:29:55+08:00"
-              content="2016-12-07" >
-          12-07
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redis/" rel="tag"># redis</a>
+          
+            <a href="/tags/故障案例/" rel="tag"># 故障案例</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/15/kubernetes学习笔记（四）/" rel="next" title="kubernetes学习笔记（四）">
+                <i class="fa fa-chevron-left"></i> kubernetes学习笔记（四）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -348,6 +508,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="SOHUCS"></div>
+    
+  </div>
+
 
         </div>
         
@@ -367,8 +533,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/logo2.png"
@@ -448,6 +623,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#redis-server启动失败案例整理"><span class="nav-number">1.</span> <span class="nav-text">redis-server启动失败案例整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#案例1"><span class="nav-number">1.1.</span> <span class="nav-text">案例1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#故障现象"><span class="nav-number">1.1.1.</span> <span class="nav-text">故障现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">1.1.2.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -575,6 +766,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
