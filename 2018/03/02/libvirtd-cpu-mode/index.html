@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="redis,故障案例," />
+  <meta name="keywords" content="libvirtd," />
 
 
 
@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="redis-server启动失败案例整理">
+<meta name="description" content="libvirt中的cpu-model 闲话">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis-server启动失败案例.md">
-<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2017/09/30/redis-server启动失败案例/index.html">
+<meta property="og:title" content="libvirtd-cpu-model">
+<meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2018/03/02/libvirtd-cpu-mode/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
-<meta property="og:description" content="redis-server启动失败案例整理">
-<meta property="og:updated_time" content="2017-09-30T08:51:25.984Z">
+<meta property="og:description" content="libvirt中的cpu-model 闲话">
+<meta property="og:updated_time" content="2018-03-02T06:10:32.197Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis-server启动失败案例.md">
-<meta name="twitter:description" content="redis-server启动失败案例整理">
+<meta name="twitter:title" content="libvirtd-cpu-model">
+<meta name="twitter:description" content="libvirt中的cpu-model 闲话">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/2017/09/30/redis-server启动失败案例/"/>
+  <link rel="canonical" href="http://movie0125.github.io/movie0125.github.io/2018/03/02/libvirtd-cpu-mode/"/>
 
 
 
 
 
-  <title> redis-server启动失败案例.md | Movie‘s Blog </title>
+  <title> libvirtd-cpu-model | Movie‘s Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -312,7 +312,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2017/09/30/redis-server启动失败案例/">
+    <link itemprop="mainEntityOfPage" href="http://movie0125.github.io/movie0125.github.io/2018/03/02/libvirtd-cpu-mode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Movie">
@@ -333,7 +333,7 @@
             
             
               
-                redis-server启动失败案例.md
+                libvirtd-cpu-model
               
             
           </h1>
@@ -348,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-30T16:45:42+08:00">
-                2017-09-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-02T13:40:30+08:00">
+                2018-03-02
               </time>
             
 
@@ -390,8 +390,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/09/30/redis-server启动失败案例/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/09/30/redis-server启动失败案例/" itemprop="commentsCount"></span>
+                <a href="/2018/03/02/libvirtd-cpu-mode/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/03/02/libvirtd-cpu-mode/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -422,17 +422,35 @@
       
 
       
-        <h1 id="redis-server启动失败案例整理"><a href="#redis-server启动失败案例整理" class="headerlink" title="redis-server启动失败案例整理"></a>redis-server启动失败案例整理</h1><a id="more"></a>
-<h2 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h2><h3 id="故障现象"><a href="#故障现象" class="headerlink" title="故障现象"></a>故障现象</h3><p>  系统断电故障，开机后发现redis服务无法正常启动<br>  查看日志文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim /var/<span class="built_in">log</span>/redis/redis_6570.log</div><div class="line"></div><div class="line">33003:M 29 Sep 14:26:43.400 <span class="comment"># WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.</span></div><div class="line">33003:M 29 Sep 14:26:50.933 <span class="comment"># Bad file format reading the append only file: make a backup of your AOF file, then use ./redis-check-aof --fix &lt;filename&gt;</span></div></pre></td></tr></table></figure>
-<p>  根据日志提示，aof文件损坏，找到aof文件路径</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ll /var/lib/redis</span></div><div class="line">total 8499368</div><div class="line">-rw-r--r-- 1 root root 3049037743 Sep 29 14:27 appndonly_6570.aof</div><div class="line">-rw-r--r-- 1 root root 2005852037 Sep 29 14:27 appndonly_6571.aof</div><div class="line">-rw-r--r-- 1 root root 2500615451 Sep 25 11:11 dump_6570.rdb</div><div class="line">-rw-r--r-- 1 root root 1147819195 Sep 29 14:30 dump_6571.rdb</div><div class="line">-rw-r--r-- 1 root root        774 Sep 29 14:30 nodes-6570.conf</div><div class="line">-rw-r--r-- 1 root root        774 Sep 29 14:30 nodes-6571.conf</div></pre></td></tr></table></figure>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>  修复aof文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">redis-check-aof --fix appndonly_6570.aof</div><div class="line">redis-check-aof --fix appndonly_6571.aof</div></pre></td></tr></table></figure>
-<p>  启动服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">redis-server  /etc/redis/redis_6570.conf</div><div class="line">redis-server  /etc/redis/redis_6571.conf</div></pre></td></tr></table></figure>
-<p>检查集群服务状态，三个 Master， 三个 Slave 为正常</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># redis-trib.rb check 127.0.0.1:6570</span></div><div class="line">&gt;&gt;&gt; Performing Cluster Check (using node 127.0.0.1:6570)</div><div class="line">M: d0f69094f2b7dc51d92beaf7f25951ddfdcc8dc2 127.0.0.1:6570</div><div class="line">   slots:5461-10922 (5462 slots) master</div><div class="line">   1 additional replica(s)</div><div class="line">M: 951f03230d046e085b664d96e28af933e0754123 10.168.14.15:6571</div><div class="line">   slots:0-5460 (5461 slots) master</div><div class="line">   1 additional replica(s)</div><div class="line">S: ea62a89ae08274704180d24803cb7d51beb3f511 10.168.14.14:6570</div><div class="line">   slots: (0 slots) slave</div><div class="line">   replicates 951f03230d046e085b664d96e28af933e0754123</div><div class="line">M: 89503f4af14b147b340d965b298e5da4cae5bd36 10.168.14.16:6570</div><div class="line">   slots:10923-16383 (5461 slots) master</div><div class="line">   1 additional replica(s)</div><div class="line">S: 959056aa32bcfd0dd7750dbbb9a3b88661ed77af 10.168.14.14:6571</div><div class="line">   slots: (0 slots) slave</div><div class="line">   replicates d0f69094f2b7dc51d92beaf7f25951ddfdcc8dc2</div><div class="line">S: e0548441c7f5a07ecd31df77a3e5b085dbaa48d0 10.168.14.16:6571</div><div class="line">   slots: (0 slots) slave</div><div class="line">   replicates 89503f4af14b147b340d965b298e5da4cae5bd36</div><div class="line">[OK] All nodes agree about slots configuration.</div><div class="line">&gt;&gt;&gt; Check <span class="keyword">for</span> open slots...</div><div class="line">&gt;&gt;&gt; Check slots coverage...</div><div class="line">[OK] All 16384 slots covered.</div></pre></td></tr></table></figure>
+        <h1 id="libvirt中的cpu-model-闲话"><a href="#libvirt中的cpu-model-闲话" class="headerlink" title="libvirt中的cpu-model 闲话"></a>libvirt中的cpu-model 闲话</h1><a id="more"></a>
+<h2 id="关于CPU型号的定义："><a href="#关于CPU型号的定义：" class="headerlink" title="关于CPU型号的定义："></a>关于CPU型号的定义：</h2><p> 配置文件 <code>/usr/share/libvirt/cpu_map.xml</code> 可以查到libvirt 对CPU的定义提炼出标准的几种类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">......</div><div class="line">    &lt;!-- Intel CPU models --&gt;</div><div class="line">    &lt;model name=&apos;Conroe&apos;&gt;</div><div class="line">      &lt;model name=&apos;pentiumpro&apos;/&gt;</div><div class="line">      &lt;vendor name=&apos;Intel&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;mtrr&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;mca&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;pse36&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;clflush&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;pni&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;ssse3&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;syscall&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;nx&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;lm&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;lahf_lm&apos;/&gt;</div><div class="line">    &lt;/model&gt;</div><div class="line"></div><div class="line">    &lt;model name=&apos;Penryn&apos;&gt;</div><div class="line">      &lt;model name=&apos;Conroe&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;cx16&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;sse4.1&apos;/&gt;</div><div class="line">    &lt;/model&gt;</div><div class="line"></div><div class="line">    &lt;model name=&apos;Nehalem&apos;&gt;</div><div class="line">      &lt;model name=&apos;Penryn&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;sse4.2&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;popcnt&apos;/&gt;</div><div class="line">    &lt;/model&gt;</div><div class="line"></div><div class="line">    &lt;model name=&apos;Westmere&apos;&gt;</div><div class="line">      &lt;model name=&apos;Nehalem&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;aes&apos;/&gt;</div><div class="line">    &lt;/model&gt;</div><div class="line"></div><div class="line">    &lt;model name=&apos;SandyBridge&apos;&gt;</div><div class="line">      &lt;model name=&apos;Westmere&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;pclmuldq&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;x2apic&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;tsc-deadline&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;xsave&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;avx&apos;/&gt;</div><div class="line">      &lt;feature name=&apos;rdtscp&apos;/&gt;</div><div class="line">    &lt;/model&gt;</div><div class="line">......</div></pre></td></tr></table></figure>
+<p>  其中 model 是名字，feature 是cpu 的特性。cpu支持的特性可以查看 /proc/cpuinfo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">processor	: 63</div><div class="line">vendor_id	: GenuineIntel</div><div class="line">cpu family	: 6</div><div class="line">model		: 63</div><div class="line">model name	: Intel(R) Xeon(R) CPU E5-2675 v3 @ 1.80GHz</div><div class="line">......</div><div class="line">flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm abm ida arat epb xsaveopt pln pts dtherm tpr_shadow flexpriority ept fsgsbase tsc_adjust bmi1 avx2 bmi2 erms</div><div class="line">......</div></pre></td></tr></table></figure>
+<h2 id="CPU配置模式可以有以下几种种模式"><a href="#CPU配置模式可以有以下几种种模式" class="headerlink" title="CPU配置模式可以有以下几种种模式:"></a>CPU配置模式可以有以下几种种模式:</h2><p><a href="https://wiki.openstack.org/wiki/LibvirtXMLCPUModel" target="_blank" rel="external">LibvirtXMLCPUModel 官网说明</a></p>
+<ul>
+<li><p>custom 自己定义, 默认为 custom 。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;cpu mode=&apos;custom&apos; match=&apos;exact&apos; check=&apos;partial&apos;&gt;</div><div class="line">  &lt;model fallback=&apos;allow&apos;&gt;SandyBridge&lt;/model&gt;</div><div class="line">  &lt;vendor&gt;Intel&lt;/vendor&gt;</div><div class="line">&lt;/cpu&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>host-model 根据物理CPU的特性，选择一个最靠近的标准CPU型号，xml配置文件为： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;cpu mode=&apos;host-model&apos;&gt;</div><div class="line">&lt;model fallback=&apos;forbid&apos;/&gt;</div><div class="line">&lt;topology sockets=&apos;1&apos; cores=&apos;2&apos; threads=&apos;1&apos;/&gt;</div><div class="line">&lt;/cpu&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>host-passthrough 直接将物理CPU 暴露给虚拟机使用，在虚拟机上完全可以看到的就是物理CPU的型号；xml配置文件为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;cpu mode=&apos;host-passthrough&apos;/&gt;</div></pre></td></tr></table></figure>
+<p>这种方式是CPU性能最好的，也可以适用于有些应用检查CPU某些特性；但是虚拟机不能迁移到不同型号的CPU上；</p>
+</li>
+</ul>
+<h3 id="错误案例集合"><a href="#错误案例集合" class="headerlink" title="错误案例集合"></a>错误案例集合</h3><ol>
+<li><p>virsh 启动虚拟机时，提示虚拟机特性与宿主机CPU不兼容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># virsh start xxxx</div><div class="line">error: unsupported configuration: guest and host CPU are not compatible: Host CPU does not provide required features: tsc-deadline</div></pre></td></tr></table></figure>
+<p>查看 <code>/usr/share/libvirt/cpu_map.xml</code> 文件， 确实有一个 <code>&lt;feature name=&#39;tsc-deadline&#39;/&gt;</code> 的描述，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;model name=&apos;SandyBridge&apos;&gt;</div><div class="line">  &lt;model name=&apos;Westmere&apos;/&gt;</div><div class="line">  &lt;feature name=&apos;pclmuldq&apos;/&gt;</div><div class="line">  &lt;feature name=&apos;x2apic&apos;/&gt;</div><div class="line">  &lt;feature name=&apos;tsc-deadline&apos;/&gt;</div><div class="line">  &lt;feature name=&apos;xsave&apos;/&gt;</div><div class="line">  &lt;feature name=&apos;avx&apos;/&gt;</div><div class="line">  &lt;feature name=&apos;rdtscp&apos;/&gt;</div><div class="line">&lt;/model&gt;</div></pre></td></tr></table></figure>
+<p>然后查看 cpu 特性列表 发现缺少 tsc_deadline_timer 的flag。</p>
+<p>正常的 flags如下:<br>flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt <code>tsc_deadline_timer</code> aes xsave avx lahf_lm ida arat xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid</p>
+<p>处理办法，编辑文件 <code>/usr/share/libvirt/cpu_map.xml</code>，删除<code>&lt;feature name=&#39;tsc-deadline&#39;/&gt;</code>，重启libvirtd <code>systemctl restart libvirtd</code></p>
+</li>
+</ol>
+
       
     </div>
 
@@ -461,9 +479,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/redis/" rel="tag"># redis</a>
-          
-            <a href="/tags/故障案例/" rel="tag"># 故障案例</a>
+            <a href="/tags/libvirtd/" rel="tag"># libvirtd</a>
           
         </div>
       
@@ -476,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/15/kubernetes学习笔记（四）/" rel="next" title="kubernetes学习笔记（四）">
-                <i class="fa fa-chevron-left"></i> kubernetes学习笔记（四）
+              <a href="/2017/09/30/redis-server启动失败案例/" rel="next" title="redis-server启动失败案例.md">
+                <i class="fa fa-chevron-left"></i> redis-server启动失败案例.md
               </a>
             
           </div>
@@ -485,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/02/libvirtd-cpu-mode/" rel="prev" title="libvirtd-cpu-model">
-                libvirtd-cpu-model <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -637,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#redis-server启动失败案例整理"><span class="nav-number">1.</span> <span class="nav-text">redis-server启动失败案例整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#案例1"><span class="nav-number">1.1.</span> <span class="nav-text">案例1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#故障现象"><span class="nav-number">1.1.1.</span> <span class="nav-text">故障现象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">1.1.2.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#libvirt中的cpu-model-闲话"><span class="nav-number">1.</span> <span class="nav-text">libvirt中的cpu-model 闲话</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于CPU型号的定义："><span class="nav-number">1.1.</span> <span class="nav-text">关于CPU型号的定义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CPU配置模式可以有以下几种种模式"><span class="nav-number">1.2.</span> <span class="nav-text">CPU配置模式可以有以下几种种模式:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误案例集合"><span class="nav-number">1.2.1.</span> <span class="nav-text">错误案例集合</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
