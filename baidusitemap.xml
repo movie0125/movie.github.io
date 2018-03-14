@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://www.moviema.in/2018/03/14/Linux%E4%B8%ADTCP%E8%BF%9E%E6%8E%A5TIME-WAIT/</loc>
+    <lastmod>2018-03-14T07:40:15.934Z</lastmod>
+    <data>
+        <display>
+        <title>Linux中TCP连接TIME_WAIT</title>
+        <pubTime>2018-03-14T06:48:16.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2018/03/02/libvirtd-cpu-mode/</loc>
+    <lastmod>2018-03-02T06:10:32.197Z</lastmod>
+    <data>
+        <display>
+        <title>libvirtd-cpu-model</title>
+        <pubTime>2018-03-02T05:40:30.000Z</pubTime>
+        
+        <tag>libvirtd</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/09/30/redis-server%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E6%A1%88%E4%BE%8B/</loc>
+    <lastmod>2017-09-30T08:51:25.984Z</lastmod>
+    <data>
+        <display>
+        <title>redis-server启动失败案例.md</title>
+        <pubTime>2017-09-30T08:45:42.000Z</pubTime>
+        
+        <tag>redis</tag>
+         
+        <tag>故障案例</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/09/15/kubernetes%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/</loc>
+    <lastmod>2017-09-15T10:17:22.687Z</lastmod>
+    <data>
+        <display>
+        <title>kubernetes学习笔记（四）</title>
+        <pubTime>2017-09-15T08:46:43.000Z</pubTime>
+        
+        <tag>kubernetes概念</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/09/08/kubernetes%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</loc>
+    <lastmod>2017-09-08T07:39:23.155Z</lastmod>
+    <data>
+        <display>
+        <title>kubernetes学习笔记（三）</title>
+        <pubTime>2017-09-08T06:19:12.000Z</pubTime>
+        
+        <tag>kubernetes概念</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/09/07/kubernetes%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</loc>
+    <lastmod>2017-09-07T08:49:30.970Z</lastmod>
+    <data>
+        <display>
+        <title>kubernetes学习笔记（二）</title>
+        <pubTime>2017-09-07T07:48:04.000Z</pubTime>
+        
+        <tag>kubernetes概念</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/08/21/kubernetes%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
+    <lastmod>2017-09-07T07:52:45.583Z</lastmod>
+    <data>
+        <display>
+        <title>kubernetes学习笔记（一）</title>
+        <pubTime>2017-08-21T05:39:20.000Z</pubTime>
+        
+        <tag>kubernetes概念</tag>
+         
+        <tag>docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/08/30/%E5%AE%B9%E5%99%A8%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%A4%9A%E5%AD%90%E7%BD%91%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/</loc>
+    <lastmod>2017-09-06T09:30:47.386Z</lastmod>
+    <data>
+        <display>
+        <title>容器跨主机多子网配置方法（二）</title>
+        <pubTime>2017-08-30T01:35:31.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/09/06/%E4%BD%BF%E7%94%A8docker%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2017-09-06T09:14:41.427Z</lastmod>
+    <data>
+        <display>
+        <title>使用docker需要考虑的问题</title>
+        <pubTime>2017-09-06T09:11:33.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>容器</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术思考" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%9D%E8%80%83/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/09/01/%E5%AE%B9%E5%99%A8Link%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/</loc>
+    <lastmod>2017-09-04T03:04:18.874Z</lastmod>
+    <data>
+        <display>
+        <title>容器Link原理解析</title>
+        <pubTime>2017-09-01T08:56:19.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/08/29/%E5%AE%B9%E5%99%A8%E8%B7%A8%E4%B8%BB%E6%9C%BA%E5%A4%9A%E5%AD%90%E7%BD%91%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/</loc>
+    <lastmod>2017-09-04T02:31:06.878Z</lastmod>
+    <data>
+        <display>
+        <title>容器跨主机多子网配置方法（一）</title>
+        <pubTime>2017-08-29T09:31:30.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/08/23/rabbitmq%E6%95%85%E9%9A%9C%E4%BF%AE%E5%A4%8D/</loc>
+    <lastmod>2017-08-23T06:30:19.790Z</lastmod>
+    <data>
+        <display>
+        <title>rabbitmq故障修复</title>
+        <pubTime>2017-08-23T02:46:27.000Z</pubTime>
+        
+        <tag>rabbitmq</tag>
+         
+        <tag>故障修复</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2017/01/07/ansible-setup-module-problem-md/</loc>
+    <lastmod>2017-08-23T06:03:31.472Z</lastmod>
+    <data>
+        <display>
+        <title>ansible的setup模块可能导致进程卡死</title>
+        <pubTime>2017-01-07T14:11:40.000Z</pubTime>
+        
+        <tag>ansible</tag>
+         
+        <tag>setup模块</tag>
+         
+        <tag>ansible-playbook</tag>
+         
+        <tag>openstack</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术总结" url="http://www.moviema.in/categories/%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.moviema.in/2016/12/07/helloblog/</loc>
+    <lastmod>2016-12-18T12:45:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>helloblog</title>
+        <pubTime>2016-12-07T07:29:55.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+        <tag>hexo</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+</urlset>
