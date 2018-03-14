@@ -87,22 +87,18 @@
 
 
 
-<meta name="description" content="Linux中TCP连接TIME_WAIT状态TCP连接过程  先看一张连接图  !(TCP连接过程)[http://ohpl45gie.bkt.clouddn.com/TCP%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.png]
-  主要关注三个状态：ESTABLISHED 表示正在通信，TIME_WAIT 表示主动关闭，CLOSE_WAIT 表示被动关闭。
-  上面">
+<meta name="description" content="Linux中TCP连接TIME_WAIT状态">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux中TCP连接TIME_WAIT">
 <meta property="og:url" content="http://movie0125.github.io/movie0125.github.io/2018/03/14/Linux中TCP连接TIME-WAIT/index.html">
 <meta property="og:site_name" content="Movie‘s Blog">
-<meta property="og:description" content="Linux中TCP连接TIME_WAIT状态TCP连接过程  先看一张连接图  !(TCP连接过程)[http://ohpl45gie.bkt.clouddn.com/TCP%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.png]
-  主要关注三个状态：ESTABLISHED 表示正在通信，TIME_WAIT 表示主动关闭，CLOSE_WAIT 表示被动关闭。
-  上面">
-<meta property="og:updated_time" content="2018-03-14T07:19:49.932Z">
+<meta property="og:description" content="Linux中TCP连接TIME_WAIT状态">
+<meta property="og:image" content="http://ohpl45gie.bkt.clouddn.com/TCP%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.png">
+<meta property="og:updated_time" content="2018-03-14T07:28:28.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux中TCP连接TIME_WAIT">
-<meta name="twitter:description" content="Linux中TCP连接TIME_WAIT状态TCP连接过程  先看一张连接图  !(TCP连接过程)[http://ohpl45gie.bkt.clouddn.com/TCP%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.png]
-  主要关注三个状态：ESTABLISHED 表示正在通信，TIME_WAIT 表示主动关闭，CLOSE_WAIT 表示被动关闭。
-  上面">
+<meta name="twitter:description" content="Linux中TCP连接TIME_WAIT状态">
+<meta name="twitter:image" content="http://ohpl45gie.bkt.clouddn.com/TCP%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.png">
 
 
 
@@ -428,8 +424,8 @@
       
 
       
-        <a id="more"></a>
-<h1 id="Linux中TCP连接TIME-WAIT状态"><a href="#Linux中TCP连接TIME-WAIT状态" class="headerlink" title="Linux中TCP连接TIME_WAIT状态"></a>Linux中TCP连接TIME_WAIT状态</h1><h2 id="TCP连接过程"><a href="#TCP连接过程" class="headerlink" title="TCP连接过程"></a>TCP连接过程</h2><p>  先看一张连接图<br>  !(TCP连接过程)[<a href="http://ohpl45gie.bkt.clouddn.com/TCP%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.png" target="_blank" rel="external">http://ohpl45gie.bkt.clouddn.com/TCP%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.png</a>]</p>
+        <h1 id="Linux中TCP连接TIME-WAIT状态"><a href="#Linux中TCP连接TIME-WAIT状态" class="headerlink" title="Linux中TCP连接TIME_WAIT状态"></a>Linux中TCP连接TIME_WAIT状态</h1><a id="more"></a>
+<h2 id="TCP连接过程"><a href="#TCP连接过程" class="headerlink" title="TCP连接过程"></a>TCP连接过程</h2><p>  先看一张连接图<br>  <img src="http://ohpl45gie.bkt.clouddn.com/TCP%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.png" alt="TCP连接过程"></p>
 <p>  主要关注三个状态：ESTABLISHED 表示正在通信，TIME_WAIT 表示主动关闭，CLOSE_WAIT 表示被动关闭。</p>
 <p>  上面的示意图可以看得出来，TIME_WAIT是主动关闭连接的一方保持的状态，然后在保持这个状态2MSL（max segment lifetime）时间之后，彻底关闭回收资源。为什么要保持2MSL时间，这个是TCP/IP的设计者规定的，主要出于以下两个方面的考虑：</p>
 <ol>
@@ -440,6 +436,8 @@
 <h2 id="TIME-WAIT状态的影响"><a href="#TIME-WAIT状态的影响" class="headerlink" title="TIME_WAIT状态的影响"></a>TIME_WAIT状态的影响</h2><p>  而TIME_WAIT和CLOSE_WAIT两种状态如果一直被保持，那么意味着文件打开数就一直被占着，而且这个文件句柄无法被再次使用，一旦达到句柄数上限，新的请求就无法被处理了，接着就是大量Too Many Open Files异常。</p>
 <h2 id="TIME-WAIT状态的处理办法"><a href="#TIME-WAIT状态的处理办法" class="headerlink" title="TIME_WAIT状态的处理办法"></a>TIME_WAIT状态的处理办法</h2><p>  让系统快速回收 TIME_WAIT 状态的连接，以centos7为例，增加如下系统配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#表示开启SYN Cookies。当出现SYN等待队列溢出时，启用cookies来处理，可防范少量SYN攻击，默认为0，表示关闭；</div><div class="line">net.ipv4.tcp_syncookies = 1</div><div class="line">#表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭；</div><div class="line">net.ipv4.tcp_tw_reuse = 1</div><div class="line">#表示开启TCP连接中TIME-WAIT sockets的快速回收，默认为0，表示关闭。</div><div class="line">net.ipv4.tcp_tw_recycle = 1</div><div class="line">#修改系統默认的TIMEOUT时间</div><div class="line">net.ipv4.tcp_fin_timeout=30</div></pre></td></tr></table></figure>
+<p> <a href="https://blog.miniasp.com/post/2010/11/17/How-to-deal-with-TIME_WAIT-problem-under-Windows.aspx" target="_blank" rel="external">windows系统连接TIME_WAIT处理办法</a></p>
+
       
     </div>
 

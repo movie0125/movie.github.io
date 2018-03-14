@@ -422,20 +422,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="Linux中TCP连接TIME-WAIT状态"><a href="#Linux中TCP连接TIME-WAIT状态" class="headerlink" title="Linux中TCP连接TIME_WAIT状态"></a>Linux中TCP连接TIME_WAIT状态</h1><h2 id="TCP连接过程"><a href="#TCP连接过程" class="headerlink" title="TCP连接过程"></a>TCP连接过程</h2><p>  先看一张连接图<br>  !(TCP连接过程)[<a href="http://ohpl45gie.bkt.clouddn.com/TCP%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.png" target="_blank" rel="external">http://ohpl45gie.bkt.clouddn.com/TCP%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B.png</a>]</p>
-<p>  主要关注三个状态：ESTABLISHED 表示正在通信，TIME_WAIT 表示主动关闭，CLOSE_WAIT 表示被动关闭。</p>
-<p>  上面的示意图可以看得出来，TIME_WAIT是主动关闭连接的一方保持的状态，然后在保持这个状态2MSL（max segment lifetime）时间之后，彻底关闭回收资源。为什么要保持2MSL时间，这个是TCP/IP的设计者规定的，主要出于以下两个方面的考虑：</p>
-<ol>
-<li>防止上一次连接中的包，迷路后重新出现，影响新连接（经过2MSL，上一次连接中所有的重复包都会消失）</li>
-<li>可靠的关闭TCP连接。在主动关闭方发送的最后一个 ack(fin) ，有可能丢失，这时被动方会重新发fin, 如果这时主动方处于 CLOSED 状态 ，就会响应 rst 而不是 ack。所以主动方要处于 TIME_WAIT 状态，而不能是 CLOSED 。另外这么设计TIME_WAIT 会定时的回收资源，并不会占用很大资源的，除非短时间内接受大量请求或者受到攻击。</li>
-</ol>
-<h3 id="什么是-MSL？"><a href="#什么是-MSL？" class="headerlink" title="什么是 MSL？"></a>什么是 MSL？</h3><p>MSL 为一个网络封包在网络上传输（从来源送到目的地之间）可续存的时间。当初定义 RFC793 TCP传输协议是在1981年，当时的网络速度慢，当年访问网页，一个网页可能需要几分钟。现在的网络速度下，这个时间是可以大幅度降低的。</p>
-<h2 id="TIME-WAIT状态的影响"><a href="#TIME-WAIT状态的影响" class="headerlink" title="TIME_WAIT状态的影响"></a>TIME_WAIT状态的影响</h2><p>  而TIME_WAIT和CLOSE_WAIT两种状态如果一直被保持，那么意味着文件打开数就一直被占着，而且这个文件句柄无法被再次使用，一旦达到句柄数上限，新的请求就无法被处理了，接着就是大量Too Many Open Files异常。</p>
-<h2 id="TIME-WAIT状态的处理办法"><a href="#TIME-WAIT状态的处理办法" class="headerlink" title="TIME_WAIT状态的处理办法"></a>TIME_WAIT状态的处理办法</h2><p>  让系统快速回收 TIME_WAIT 状态的连接，以centos7为例，增加如下系统配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#表示开启SYN Cookies。当出现SYN等待队列溢出时，启用cookies来处理，可防范少量SYN攻击，默认为0，表示关闭；</div><div class="line">net.ipv4.tcp_syncookies = 1</div><div class="line">#表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭；</div><div class="line">net.ipv4.tcp_tw_reuse = 1</div><div class="line">#表示开启TCP连接中TIME-WAIT sockets的快速回收，默认为0，表示关闭。</div><div class="line">net.ipv4.tcp_tw_recycle = 1</div><div class="line">#修改系統默认的TIMEOUT时间</div><div class="line">net.ipv4.tcp_fin_timeout=30</div></pre></td></tr></table></figure>
-          
+          <h1 id="Linux中TCP连接TIME-WAIT状态"><a href="#Linux中TCP连接TIME-WAIT状态" class="headerlink" title="Linux中TCP连接TIME_WAIT状态"></a>Linux中TCP连接TIME_WAIT状态</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/14/Linux中TCP连接TIME-WAIT/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
